@@ -6,7 +6,7 @@ import { BlankPageComponent } from './pages/blank-page/blank-page.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent,
-  children: [
+    children: [
       { path: '', component: BlankPageComponent }
     ]
   }
