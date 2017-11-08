@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { AuthorizationModule } from './authorization/authorization.module';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome'
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     BrowserModule,
     LayoutModule,
     AuthorizationModule,
+    AngularFontAwesomeModule,
     AppRoutingModule
   ],
   providers: [
