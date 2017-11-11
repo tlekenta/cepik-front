@@ -21,6 +21,7 @@ export class SidebarComponent implements OnInit {
   }
   ngOnInit() {
     this.getPages();
+    this.onselect(PAGES[0]);
   }
 
   onselect(page: Page): void {
