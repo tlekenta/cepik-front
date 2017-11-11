@@ -1,24 +1,42 @@
 <div class="sidebar-wrapper">
-  <div class="sidebar">
-    <div class="logo">
-        <img src = "../../../assets/img/logoSG.png"/>
-    </div>
-    <div class="nav-wrapper">
-        <ul class="nav">
-            <li *ngFor="let page of pages" (click)="onselect(page)"
-            [class.selected]="page == selectedPage">
-                <a routerLink="{{page.url}}">
-                    <p>{{ page.names }}</p>
+    <div class="sidebar">
+      <div class="logo">
+          <img src = "../../../assets/img/logoSG.png"/>
+      </div>
+
+      <div class="nav-wrapper">
+          <ul class="nav">
+              <li *ngFor="let page of pages" (click)="onselect(page)"
+               [class.selected]="page == selectedPage"   >
+               <a routerLink="{{page.url}}">       
+                   <p>{{page.names}}</p>
                 </a>
-            </li>
-            <!--<li>
-                <a routerLink="/vehicle">
-                    <i class="pe-7s-user"></i>
-                    <p>Add Vehicle</p>
-                </a>
-            </li>-->
-        </ul>
-    </div>
-   
+                <div *ngIf="page.id == 2 && page == selectedPage ;then vehicle_option"></div>
+                <div *ngIf="page.id == 3 && page == selectedPage ;then person_option"></div>
+              </li>
+          </ul>
+      </div>
+      <ng-template #vehicle_option> 
+          <div class="nav-item">
+                  <ul class="nav">
+                  <li *ngFor="let vehiclepage of vehiclepages" (click)="onselectvehicle(vehiclepage)" >
+                        <a routerLink="{{vehiclepage.url}}">               
+                          <p>{{ vehiclepage.names }}</p>
+                        </a>
+                    </li>
+                 </ul>
+              </div>
+      </ng-template>
+      <ng-template #person_option> 
+        <div class="nav-item">
+                <ul class="nav">
+                <li *ngFor="let personpage of personpages" (click)="onselectperson(personpage)" >
+                      <a routerLink="{{personpage.url}}">               
+                        <p>{{ personpage.names }}</p>
+                      </a>
+                  </li>
+               </ul>
+            </div>
+       </ng-template>
   </div>    
-</div>
+  </div>
