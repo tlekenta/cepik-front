@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Page } from './page';
-
-const PAGES: Page[] = [
-  { id: 1, url: '/dashboard', names: "Dashboard" },
-  { id: 2, url: "/vehicle", names: "Pojazdy"},
-  { id: 3, url: "/person", names: "Osoby"}
-]
+import { MenuPage } from './menupage';
+import { PAGES } from './mock-pages';
+import { PAGES_PERSON } from './mock-pages';
+import { PAGES_VEHICLE } from './mock-pages';
+import { PAGES_DAS } from './mock-pages';
 
 @Component({
   selector: 'sidebar',
@@ -13,9 +12,11 @@ const PAGES: Page[] = [
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  pages: MenuPage[];
+  selectedPage: MenuPage;
+  selectedItemPage: Page;
+  itempages: Page[];
 
-  pages: Page[];
-  selectedPage: Page;
   getPages() : void{
     this.pages = PAGES;
   }
@@ -23,8 +24,13 @@ export class SidebarComponent implements OnInit {
     this.getPages();
     this.onselect(PAGES[0]);
   }
-
-  onselect(page: Page): void {
+  onselect(page: MenuPage): void {
     this.selectedPage = page;
+  }
+  onselectItem(page: Page): void {
+    this.selectedItemPage = page;
+  }
+  onselectItemAll(page: Page[]): void {
+    this.itempages = page;
   }
 }

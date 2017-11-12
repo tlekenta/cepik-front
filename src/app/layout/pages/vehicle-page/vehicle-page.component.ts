@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicle-page.component.css']
 })
 export class VehiclePageComponent implements OnInit {
-  title = "Add Vehicle";
+  title = "Vehicle";
   constructor() { }
 
   ngOnInit() {

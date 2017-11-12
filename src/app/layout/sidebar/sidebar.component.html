@@ -1,24 +1,29 @@
 <div class="sidebar-wrapper">
-  <div class="sidebar">
-    <div class="logo">
-        <img src = "../../../assets/img/logoSG.png"/>
-    </div>
-    <div class="nav-wrapper">
-        <ul class="nav">
-            <li *ngFor="let page of pages" (click)="onselect(page)"
-            [class.selected]="page == selectedPage">
-                <a routerLink="{{page.url}}">
-                    <p>{{ page.names }}</p>
+    <div class="sidebar">
+      <div class="logo">
+          <img src = "../../../assets/img/logoSG.png"/>
+      </div>
+    <div class="nav">
+          <ul class="nav">
+              <li *ngFor="let page of pages" (click)="onselect(page)" (click)="onselectItemAll(page.pageitem)" 
+               [class.selected]="page == selectedPage"   >
+               <a routerLink="{{page.url}}">       
+                   <p>{{page.names}}</p>
                 </a>
+                <div *ngIf="page==selectedPage ;then option"></div>
             </li>
-            <!--<li>
-                <a routerLink="/vehicle">
-                    <i class="pe-7s-user"></i>
-                    <p>Add Vehicle</p>
-                </a>
-            </li>-->
-        </ul>
-    </div>
-   
+          </ul>
+      </div>
+      <ng-template #option>
+            <div class="nav-item">
+                    <ul class="nav">
+                        <li *ngFor="let itempage of itempages" (click)="onselectItem(itempage)" >
+                         <a routerLink="{{itempage.url}}">     
+                             <p>{{itempage.names}}</p>
+                          </a>
+                        </li>
+                    </ul>
+                </div>  
+      </ng-template>
   </div>    
-</div>
+  </div>

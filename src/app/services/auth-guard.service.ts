@@ -5,7 +5,7 @@ import { CanActivate } from '@angular/router';
 export class AuthGuardService implements CanActivate {
   canActivate(): boolean {
     // TODO zaimplementować po ogarnięciu logowania
-    return false;
+    return true;
   }
 
   constructor() { }
