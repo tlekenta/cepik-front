@@ -6,11 +6,7 @@ import { VehiclePageComponent } from './vehicle-page/vehicle-page.component';
 import { VehicleaddPageComponent } from './vehicle-page/vehicleadd-page/vehicleadd-page.component';
 import { VehicleremovePageComponent } from './vehicle-page/vehicleremove-page/vehicleremove-page.component';
 
-<<<<<<< HEAD
-const components = [DashboardComponent, VehiclePageComponent];
-=======
-const components = [BlankPageComponent, DashboardComponent, VehiclePageComponent, VehicleremovePageComponent, VehicleaddPageComponent];
->>>>>>> DodaniePodKategorii
+const components = [DashboardComponent, VehiclePageComponent, VehicleremovePageComponent, VehicleaddPageComponent];
 
 @NgModule({
   imports: [

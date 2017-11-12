@@ -1,21 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Page } from './page';
-
-const PAGES: Page[] = [
-  { id: 1, url: '/dashboard', names: "Dashboard" },
-  { id: 2, url: "/vehicle", names: "Pojazdy"},
-  { id: 3, url: "/dashboard", names: "Osoby"}
-]
-
-const PAGES_VEHICLE: Page[] = [
-  { id: 1, url: '/vehicleadd', names: "Dodaj pojazd" },
-  { id: 2, url: "/vehicleremove", names: "Usun pojazd"},
-]
-
-const PAGES_PERSON: Page[] = [
-  { id: 1, url: '/vehicleadd', names: "Dodaj osobe" },
-  { id: 2, url: "/vehicleremove", names: "Usun osobe"},
-]
+import { MenuPage } from './menupage';
+import { PAGES } from './mock-pages';
+import { PAGES_PERSON } from './mock-pages';
+import { PAGES_VEHICLE } from './mock-pages';
+import { PAGES_DAS } from './mock-pages';
 
 @Component({
   selector: 'sidebar',
@@ -23,38 +12,25 @@ const PAGES_PERSON: Page[] = [
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  pages: Page[];
-  vehiclepages: Page[];
-  personpages: Page[];
-  selectedPage: Page;
-  vehicleselectedPage: Page;
-  personselectedPage: Page;
+  pages: MenuPage[];
+  selectedPage: MenuPage;
+  selectedItemPage: Page;
+  itempages: Page[];
 
   getPages() : void{
     this.pages = PAGES;
   }
-  getPagesVehicle() : void{
-    this.vehiclepages = PAGES_VEHICLE;
-  }
-  getPagesPerson() : void{
-    this.personpages = PAGES_PERSON;
-  }
   ngOnInit() {
     this.getPages();
-<<<<<<< HEAD
     this.onselect(PAGES[0]);
-=======
-    this.getPagesVehicle();
-    this.getPagesPerson();
->>>>>>> DodaniePodKategorii
   }
-  onselect(page: Page): void {
+  onselect(page: MenuPage): void {
     this.selectedPage = page;
   }
-  onselectvehicle(page: Page): void {
-    this.vehicleselectedPage = page;
+  onselectItem(page: Page): void {
+    this.selectedItemPage = page;
   }
-  onselectperson(page: Page): void {
-    this.personselectedPage = page;
+  onselectItemAll(page: Page[]): void {
+    this.itempages = page;
   }
 }
