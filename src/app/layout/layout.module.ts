@@ -3,17 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { LayoutRoutingModule } from './layout-routing.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutComponent } from './layout.component';
 import { PagesModule } from './pages/pages.module';
+import { NavbarModule } from './navbar/navbar.module';
 
-const components = [SidebarComponent, NavbarComponent, LayoutComponent];
+const components = [SidebarComponent, LayoutComponent];
 
 @NgModule({
   imports: [
     CommonModule,
     PagesModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    NavbarModule
   ],
   declarations: components,
   exports: components
