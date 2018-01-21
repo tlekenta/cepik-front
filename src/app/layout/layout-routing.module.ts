@@ -17,7 +17,8 @@ const routes: Routes = [
       { path: 'vehicleremove', component: VehicleremovePageComponent },
       { path: '', component: DashboardComponent }
     ],
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    canActivateChild: [AuthGuardService]
   }
 ];
 

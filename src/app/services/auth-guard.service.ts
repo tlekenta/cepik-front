@@ -1,13 +1,23 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate, CanActivateChild, Router } from '@angular/router';
+import { isNullOrUndefined } from 'util';
+import { TOKEN_HEADER } from '../../environments/environment';
 
 @Injectable()
-export class AuthGuardService implements CanActivate {
+export class AuthGuardService implements CanActivate, CanActivateChild {
+    constructor(private router: Router) { }
+
   canActivate(): boolean {
-    // TODO zaimplementować po ogarnięciu logowania
-    return true;
+      if (isNullOrUndefined(sessionStorage.getItem(TOKEN_HEADER))) {
+          this.router.navigate(['/login']);
+          return false;
+      } else {
+          return true;
+      }
   }
 
-  constructor() { }
+  canActivateChild() {
+      return this.canActivate();
+  }
 
 }
