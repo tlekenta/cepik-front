@@ -13,7 +13,8 @@ const routes: Routes = [
       { path: 'vehicle', component: VehiclePageComponent },
       { path: '', component: DashboardComponent }
     ],
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    canActivateChild: [AuthGuardService]
   }
 ];
 

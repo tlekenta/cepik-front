@@ -6,3 +6,6 @@
 export const environment = {
   production: false
 };
+
+export const TOKEN_HEADER = 'Authorization';
+export const SERVER_URL = 'http://localhost:8080';

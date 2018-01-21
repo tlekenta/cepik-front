@@ -7,6 +7,8 @@ import { LayoutModule } from './layout/layout.module';
 import { AuthorizationModule } from './authorization/authorization.module';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-awesome'
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,12 @@ import { AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-aweso
     LayoutModule,
     AuthorizationModule,
     AngularFontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    AuthGuardService
+    AuthGuardService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
