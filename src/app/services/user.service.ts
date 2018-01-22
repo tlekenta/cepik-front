@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { TOKEN_HEADER, SERVER_URL } from '../../environments/environment';
 
 @Injectable()
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private router: Router) { }
 
   login(login: String, password: String): Promise<{success: boolean, desc: string}> {
       return this.http.post(SERVER_URL + '/login', JSON.stringify({name: login, password: password}))
@@ -44,6 +46,11 @@ export class UserService {
         description = 'Nieznany błąd podczas rejestracji (serwer nieosiągalny).';
         return {success: false, desc: description};
     });
+  }
+
+  logout() {
+        sessionStorage.removeItem(TOKEN_HEADER);
+        this.router.navigate(['/login']);
   }
 
 }
