@@ -1,22 +1,24 @@
 <div class="container">
-    <form (ngSubmit)="register()" #loginForm="ngForm">
-      <div class="form-group">
-        <label for="login">Nazwa użytkownika</label>
-        <input class="form-control" name="login" [(ngModel)]="user.login" id="login" required>
-      </div>
-      <div class="form-group">
-          <label for="email">Adres e-mail</label>
-          <input type="email" class="form-control" name="email" [(ngModel)]="user.email" id="email" placeholder="" required>
-        </div>
-      <div class="form-group">
-        <label for="password">Hasło</label>
-        <input type="password" class="form-control" name="password" [(ngModel)]="user.password" id="password" required>
-      </div>
-      <div class="form-group">
-          <label for="password_repeat">Powtórz hasło</label>
-          <input type="password" class="form-control" name="password_repeat" [(ngModel)]="user.password_repeat" id="password_repeat" required>
-        </div>
-      <button type="submit" class="btn btn-primary">Zarejestruj</button>
-      <div class="alert alert-danger" *ngIf="error" style="white-space: pre;">{{errorDescription}}</div>
-    </form>
-  </div>
+    <div class="sub-container">
+        <form (ngSubmit)="register()" #loginForm="ngForm">
+            <div class="form-group">
+                <label for="login">Nazwa użytkownika</label>
+                <input class="form-control" name="login" [(ngModel)]="user.login" id="login" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Adres e-mail</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="user.email" id="email" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Hasło</label>
+                <input type="password" class="form-control" name="password" [(ngModel)]="user.password" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="password_repeat">Powtórz hasło</label>
+                <input type="password" class="form-control" name="password_repeat" [(ngModel)]="user.password_repeat" id="password_repeat" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Zarejestruj</button>
+        </form>
+    </div>
+    <div class="alert alert-danger" *ngIf="error" style="white-space: pre;">{{errorDescription}}</div>
+</div>
