@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Page } from './page';
-import { MenuPage } from './menupage';
-import { PAGES } from './mock-pages';
-import { PAGES_PERSON } from './mock-pages';
-import { PAGES_VEHICLE } from './mock-pages';
-import { PAGES_DAS } from './mock-pages';
+import { Page } from '../../model/page';
+import { MenuPage } from '../../model/menupage';
+import { PAGES } from '../../model/mock-pages';
 
 @Component({
   selector: 'sidebar',
