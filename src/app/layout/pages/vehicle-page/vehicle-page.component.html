@@ -1,1 +1,24 @@
 <h1 class="page-title">{{title}}</h1>
+
+<div class="table-responsive">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Numer rejestracyjny</th>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Pojemność silnika</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vehicle of table">
+                <th>{{vehicle.id}}</th>
+                <th>{{vehicle.numer_rejestracyjny}}</th>
+                <th>{{vehicle.marka}}</th>
+                <th>{{vehicle.model}}</th>
+                <th>{{vehicle.pojemnnosc_silnika}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
