@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionControlService } from '../../../../services/question-control.service';
 
 @Component({
   selector: 'app-vehicleadd-page',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicleadd-page.component.css']
 })
 export class VehicleaddPageComponent implements OnInit {
+  questions: any[];
 
-  constructor() { }
+  constructor(private questionService: QuestionControlService) { }
 
   ngOnInit() {
+    this.questions = this.questionService.getQuestions();
   }
 
 }

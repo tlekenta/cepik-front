@@ -10,6 +10,7 @@ import { AngularFontAwesomeModule} from 'angular-font-awesome/angular-font-aweso
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtHelper } from 'angular2-jwt';
+import { QuestionControlService } from './services/question-control.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { JwtHelper } from 'angular2-jwt';
   providers: [
     AuthGuardService,
     UserService,
-    JwtHelper
+    QuestionControlService,
+    JwtHelper,
   ],
   bootstrap: [AppComponent]
 })
