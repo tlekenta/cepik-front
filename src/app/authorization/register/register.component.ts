@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  passwordRequiments = '- minimalna liczba znaków: 6\n- jedna wielka litera';
+  passwordRequirements = '\t- minimalna liczba znaków: 6\n\t- jedna wielka litera';
   user = {login: '', email: '', password: '', password_repeat: ''};
   error = false;
+  success = false;
   errorDescription = '';
+  successDescription = 'Poprawnie założono konto. Zaraz nastąpi przekierowanie do strony logowania.';
 
   constructor(private userService: UserService,
               private router: Router) { }
@@ -23,24 +25,26 @@ export class RegisterComponent implements OnInit {
     if(this.user.password !== this.user.password_repeat){
       this.error = true;
       this.errorDescription = 'Hasła muszą być takie same';
-      return;
     }
 
     if(!this.checkPasswordStrength(this.user.password)){
       this.error = true;
-      this.errorDescription = 'Hasło jest zbyt słabe. Wymagania do hasła:\n' + this.passwordRequiments;
-      return;
+      if(this.errorDescription !== '') this.errorDescription += '\n';
+      this.errorDescription += 'Hasło jest zbyt słabe. Wymagania do hasła:\n' + this.passwordRequirements;
     }
 
-    this.userService.register(this.user.login, this.user.email, this.user.password)
-      .then(resp => {
-        if(resp.success){
-          this.router.navigate(['/login']);
-        } else {
-          this.error = true;
-          this.errorDescription = resp.desc;
-        }
-      })
+    if(!this.error) {
+      this.userService.register(this.user.login, this.user.email, this.user.password)
+          .then(resp => {
+            if (resp.success) {
+              this.success = true;
+              setTimeout(() => {this.router.navigate(['/login'])}, 3*1000);
+            } else {
+              this.error = true;
+              this.errorDescription = resp.desc;
+            }
+          })
+    }
   }
 
   checkPasswordStrength(password: String): boolean{
