@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { TOKEN_HEADER, SERVER_URL } from '../../environments/environment';
+import { JwtHelper } from 'angular2-jwt';
 
 @Injectable()
 export class UserService {
 
   constructor(private http: HttpClient,
-              private router: Router) { }
+              private router: Router,
+              private jwtHelper: JwtHelper) { }
 
   login(login: String, password: String): Promise<{success: boolean, desc: string}> {
       return this.http.post(SERVER_URL + '/login', JSON.stringify({name: login, password: password}))
@@ -49,8 +51,12 @@ export class UserService {
   }
 
   logout() {
-        sessionStorage.removeItem(TOKEN_HEADER);
-        this.router.navigate(['/login']);
+      sessionStorage.removeItem(TOKEN_HEADER);
+      this.router.navigate(['/login']);
+  }
+
+  getUsername(): string {
+      return this.jwtHelper.decodeToken(sessionStorage.getItem(TOKEN_HEADER))["sub"];
   }
 
 }

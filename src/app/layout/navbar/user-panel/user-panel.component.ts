@@ -8,10 +8,14 @@ import { UserService } from '../../../services/user.service';
 })
 export class UserPanelComponent implements OnInit {
   visible: boolean;
+  username: string;
+  imageSource: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.username = this.userService.getUsername();
+    this.imageSource = "../../../assets/img/letters/" + this.username.charAt(0).toUpperCase() + ".png";
   }
 
   changeUserPanelVisible(){

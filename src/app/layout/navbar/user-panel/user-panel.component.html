@@ -1,11 +1,11 @@
 <div class="user-wrapper">
     <p (click)="changeUserPanelVisible()">
-        John Smith <i class="fa fa-caret-down" aria-hidden="true"></i>
+        {{username}} <i class="fa fa-caret-down" aria-hidden="true"></i>
     </p>
     <div *ngIf='visible' class="user-panel">
         <figure class="user">
-            <img src="../../../assets/img/user.png"/>
-            <figcaption>John Smith</figcaption>
+            <img src={{imageSource}}/>
+            <figcaption>{{username}}</figcaption>
         </figure>
         <ul class="user-control">
             <li><button class="btn-info btn btn-xs ">settings</button></li>
