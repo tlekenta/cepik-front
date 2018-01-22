@@ -1,15 +1,17 @@
 <div class="container">
-  <form (ngSubmit)="login()" #loginForm="ngForm">
-    <div class="form-group">
-      <label for="login">Nazwa użytkownika</label>
-      <input class="form-control" name="login" [(ngModel)]="user.login" id="login" required>
-    </div>
-    <div class="form-group">
-      <label for="password">Hasło</label>
-      <input type="password" class="form-control" name="password" [(ngModel)]="user.password" id="password" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Zaloguj</button>
-    <a routerLink="/register" class="btn btn-primary">Załóż konto</a>
-    <div class="alert alert-danger" *ngIf="error">{{errorDescription}}</div>
-  </form>
+  <div class="sub-container">
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="login">Nazwa użytkownika</label>
+        <input class="form-control" name="login" [(ngModel)]="user.login" id="login" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Hasło</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="user.password" id="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Zaloguj</button>
+      <a routerLink="/register" class="btn btn-primary">Załóż konto</a>
+      <div class="alert alert-danger" *ngIf="error">{{errorDescription}}</div>
+    </form>
+  </div>
 </div>
