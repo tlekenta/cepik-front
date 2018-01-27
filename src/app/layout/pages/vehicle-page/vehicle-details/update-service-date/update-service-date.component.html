@@ -1,0 +1,15 @@
+<form class="form-inline" #form="ngForm" (ngSubmit)="save()">
+
+  <label for="data_do">Data ważności:</label>
+  <input class="form-control"
+         id="data_do"
+         name="data_do"
+         [(ngModel)]="vehicleForm.servicingDate"
+         type="date"
+         required>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Przedłuż</button>
+  <div class="alert alert-danger" *ngIf="error">{{errorMsg}}</div>
+  <div class="alert alert-success" *ngIf="success">{{successMsg}}</div>
+
+</form>

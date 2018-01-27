@@ -1,5 +1,6 @@
-<div class="well">Dane samochodu</div>
-<table class="table table-hover table-bordered">
+<div class="well">Dane samochodu | <p (click)="updateServiceDate = !updateServiceDate">przedłuż ważność badania technicznego</p></div>
+<app-update-service-date *ngIf="updateServiceDate" [vehicle]="vehicle"></app-update-service-date>
+<table class="table table-hover table-bordered" *ngIf="vehicle != undefined">
   <tbody class="vehicle-details">
   <tr>
     <th><b>Marka</b></th>
@@ -16,6 +17,10 @@
   <tr>
     <th><b>Numer silnika</b></th>
     <th>{{vehicle.engineNumber}}</th>
+  </tr>
+  <tr>
+    <th><b>Data ważności badania technicznego</b></th>
+    <th>{{vehicle.servicingDate}}</th>
   </tr>
   </tbody>
 </table>

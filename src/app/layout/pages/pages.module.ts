@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { VehicleDetailsComponent } from './vehicle-page/vehicle-details/vehicle-details.component';
 import { AddRegistrationDocumentComponent } from './vehicle-page/vehicle-details/add-registration-document/add-registration-document.component';
 import { EditRegistrationDocumentComponent } from './vehicle-page/vehicle-details/edit-registration-document/edit-registration-document.component';
+import { UpdateServiceDateComponent } from './vehicle-page/vehicle-details/update-service-date/update-service-date.component';
 
 const components = [
   DashboardComponent,
@@ -17,7 +18,8 @@ const components = [
   VehicleaddPageComponent,
   VehicleDetailsComponent,
   AddRegistrationDocumentComponent,
-  EditRegistrationDocumentComponent
+  EditRegistrationDocumentComponent,
+  UpdateServiceDateComponent
 ];
 
 @NgModule({

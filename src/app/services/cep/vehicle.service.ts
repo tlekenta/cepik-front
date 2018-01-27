@@ -37,6 +37,11 @@ export class VehicleService {
     return this.http.post<Vehicle>(SERVER_URL + "/vehicle", body);
   }
 
+  update(id: number, vehicle: VehicleForm): Observable<Vehicle>{
+    let body = JSON.stringify(vehicle);
+    return this.http.put<Vehicle>(SERVER_URL + "/vehicle/" + id, body);
+  }
+
   delete(id: number) {
     return this.http.delete(SERVER_URL + "/vehicle/" + id);
   }
