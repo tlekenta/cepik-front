@@ -1,4 +1,4 @@
-import { Vehicle } from '../vehicle/vehicle';
+import { Vehicle } from './vehicle';
 import { Data } from '@angular/router';
 
 export class RegistrationDocument{

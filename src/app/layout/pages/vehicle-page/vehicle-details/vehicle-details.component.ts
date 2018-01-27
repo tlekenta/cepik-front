@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { VehicleService } from '../../../../services/vehicle.service';
-import { Vehicle } from '../../../../model/vehicle/vehicle';
-import { RegistrationDocument } from '../../../../model/registration-document/registration-document';
+import { Vehicle } from '../../../../model/cep/vehicle';
+import { RegistrationDocument } from '../../../../model/cep/registration-document';
 import { RegistrationDocumentService } from '../../../../services/registration-document.service';
-import { RegistrationNumber } from '../../../../model/registration-number/registration-number';
+import { RegistrationNumber } from '../../../../model/cep/registration-number';
 import { RegistrationNumberService } from '../../../../services/registration-number.service';
 
 @Component({

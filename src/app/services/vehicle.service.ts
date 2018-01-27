@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpWrapperService } from './http-wrapper.service';
 import { SERVER_URL } from '../../environments/environment';
 import { Observable } from 'rxjs/Observable';
-import { Vehicle } from '../model/vehicle/vehicle';
-import { VehicleModel } from '../model/vehicle/vehicle-model';
-import { VehicleForm } from '../model/vehicle/vehicle-form';
+import { Vehicle } from '../model/cep/vehicle';
+import { VehicleModel } from '../model/cep/vehicle-model';
+import { VehicleForm } from '../model/cep/form/vehicle-form';
 
 @Injectable()
 export class VehicleService {

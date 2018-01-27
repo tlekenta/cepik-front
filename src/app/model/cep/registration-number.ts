@@ -1,4 +1,4 @@
-import { Vehicle } from '../vehicle/vehicle';
+import { Vehicle } from './vehicle';
 
 export class RegistrationNumber{
   id: number;
