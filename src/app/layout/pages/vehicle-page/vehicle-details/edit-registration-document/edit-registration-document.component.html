@@ -1,12 +1,9 @@
 <form class="form-inline" #form="ngForm" (ngSubmit)="save()">
 
   <label for="nr_seryjny">Numer seryjny:</label>
-  <select class="form-control" id="nr_seryjny" required>
+  <select class="form-control" id="nr_seryjny" (change)="sequenceChanged($event.target.value)" required>
     <option *ngFor="let doc of actualDocuments"
-            [value]="doc"
-            name="nr_seryjny"
-            [(ngModel)]="selectedDocument"
-            ngDefaultControl>
+            [value]="doc.id">
       {{doc.sequence}}
     </option>
   </select>

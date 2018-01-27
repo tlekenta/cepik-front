@@ -10,8 +10,12 @@ export class RegistrationDocumentService {
 
   constructor(private http: HttpWrapperService) { }
 
-  getAll(): Observable<RegistrationDocument[]>{
+  getAll(): Observable<RegistrationDocument[]> {
     return this.http.get<RegistrationDocument[]>(SERVER_URL + "/registrationDocument")
+  }
+
+  getById(id: number): Observable<RegistrationDocument> {
+    return this.http.get<RegistrationDocument>(SERVER_URL + "/registrationDocument/" + id);
   }
 
   save(document: RegistrationDocumentForm): Observable<RegistrationDocument> {
