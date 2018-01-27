@@ -13,6 +13,7 @@ import { JwtHelper } from 'angular2-jwt';
 import { HttpWrapperService } from './services/http-wrapper.service';
 import { VehicleService } from './services/vehicle.service';
 import { RegistrationDocumentService } from './services/registration-document.service';
+import { RegistrationNumberService } from './services/registration-number.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RegistrationDocumentService } from './services/registration-document.se
     JwtHelper,
     HttpWrapperService,
     VehicleService,
-    RegistrationDocumentService
+    RegistrationDocumentService,
+    RegistrationNumberService
   ],
   bootstrap: [AppComponent]
 })

@@ -4,6 +4,8 @@ import { VehicleService } from '../../../../services/vehicle.service';
 import { Vehicle } from '../../../../model/vehicle/vehicle';
 import { RegistrationDocument } from '../../../../model/registration-document/registration-document';
 import { RegistrationDocumentService } from '../../../../services/registration-document.service';
+import { RegistrationNumber } from '../../../../model/registration-number/registration-number';
+import { RegistrationNumberService } from '../../../../services/registration-number.service';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -16,10 +18,12 @@ export class VehicleDetailsComponent implements OnInit {
   private model = "";
   private marka = "";
   private dowodyRejestracyjne: RegistrationDocument[] = [];
+  private numeryRejestracyjne: RegistrationNumber[] = [];
 
   constructor(private route: ActivatedRoute,
               private service: VehicleService,
-              private regService: RegistrationDocumentService) { }
+              private regService: RegistrationDocumentService,
+              private numberService: RegistrationNumberService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -30,6 +34,10 @@ export class VehicleDetailsComponent implements OnInit {
           this.regService.getAll()
             .subscribe(data => {
               this.dowodyRejestracyjne = data.filter(dowod => dowod.vehicle.id == this.vehicleId);
+            });
+          this.numberService.getAll()
+            .subscribe(data => {
+              this.numeryRejestracyjne = data.filter(numer => numer.vehicle.id == this.vehicleId);
             });
           this.service.getModelById(this.vehicle.model.id)
             .subscribe(data => {
