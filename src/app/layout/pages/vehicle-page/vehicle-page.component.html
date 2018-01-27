@@ -4,7 +4,6 @@
     <table class="table table-hover table-bordered">
         <thead>
             <tr>
-                <th>#</th>
                 <th>Marka</th>
                 <th>Model</th>
                 <th>Rok produkcji</th>
@@ -21,8 +20,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let vehicle of table;let i = index">
-                <th>{{i + 1}}</th>
+            <tr *ngFor="let vehicle of table" (click)="carSelected(vehicle.id)">
                 <th>{{vehicle.model.brand.brand}}</th>
                 <th>{{vehicle.model.model}}</th>
                 <th>{{vehicle.productionYear}}</th>

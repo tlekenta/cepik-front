@@ -1,5 +1,8 @@
+import { VehicleModel } from './vehicle-model';
+
 export class Vehicle {
-  model: {model: {model: string, id: number}, brand: {brand: string, id: number}};
+  id: number;
+  model: VehicleModel;
   productionYear: string;
   vin: string;
   engineNumber: string;
