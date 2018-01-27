@@ -11,3 +11,9 @@
 .vehicle-details > tr > th {
     font-weight: normal;
 }
+
+p{
+    cursor: pointer;
+    display: inline;
+    text-decoration: underline;
+}

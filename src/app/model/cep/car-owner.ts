@@ -1,6 +1,6 @@
 import { Address } from './address';
 import { RegistrationDocument } from './registration-document';
-import { OcInsurance } from './form/oc-insurance';
+import { OcInsurance } from './oc-insurance';
 
 export class CarOwner{
   id: number;

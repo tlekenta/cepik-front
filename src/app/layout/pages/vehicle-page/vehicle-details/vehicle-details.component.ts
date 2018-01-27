@@ -6,7 +6,7 @@ import { RegistrationDocument } from '../../../../model/cep/registration-documen
 import { RegistrationDocumentService } from '../../../../services/cep/registration-document.service';
 import { RegistrationNumber } from '../../../../model/cep/registration-number';
 import { RegistrationNumberService } from '../../../../services/cep/registration-number.service';
-import { OcInsurance } from '../../../../model/cep/form/oc-insurance';
+import { OcInsurance } from '../../../../model/cep/oc-insurance';
 import { OcInsuranceService } from '../../../../services/cep/oc-insurance.service';
 
 @Component({
@@ -22,6 +22,7 @@ export class VehicleDetailsComponent implements OnInit {
   private dowodyRejestracyjne: RegistrationDocument[] = [];
   private numeryRejestracyjne: RegistrationNumber[] = [];
   private ubezpieczeniaOc: OcInsurance[] = [];
+  private showAddDocument: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private service: VehicleService,

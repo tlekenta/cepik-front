@@ -18,6 +18,11 @@ export class HttpWrapperService {
     return this.httpClient.post<T>(URL, body,{headers: h});
   }
 
+  put<T>(URL: string, body: string):  Observable<Object> {
+    let h = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem(TOKEN_HEADER)});
+    return this.httpClient.put<T>(URL, body,{headers: h});
+  }
+
   public delete(URL: string):  Observable<Object> {
     let h = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem(TOKEN_HEADER)});
     return this.httpClient.delete(URL, {headers: h});

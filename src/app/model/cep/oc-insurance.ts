@@ -1,5 +1,5 @@
-import { CarOwner } from '../car-owner';
-import { Vehicle } from '../vehicle';
+import { CarOwner } from './car-owner';
+import { Vehicle } from './vehicle';
 
 export class OcInsurance{
   id: number;

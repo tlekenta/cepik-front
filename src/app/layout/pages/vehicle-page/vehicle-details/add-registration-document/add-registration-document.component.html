@@ -1,0 +1,23 @@
+<form class="form-inline" #form="ngForm" (ngSubmit)="add()">
+
+  <label for="nr_seryjny">Numer seryjny:</label>
+  <input class="form-control"
+         id="nr_seryjny"
+         name="nr_seryjny"
+         [(ngModel)]="registrationDocumentForm.sequence"
+         maxlength="50"
+         required>
+
+  <label for="data_do">Data ważności:</label>
+  <input class="form-control"
+         id="data_do"
+         name="data_do"
+         [(ngModel)]="registrationDocumentForm.to"
+         type="date"
+         required>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Dodaj</button>
+  <div class="alert alert-danger" *ngIf="error">{{errorMsg}}</div>
+  <div class="alert alert-success" *ngIf="success">{{successMsg}}</div>
+
+</form>

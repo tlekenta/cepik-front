@@ -7,8 +7,18 @@ import { VehicleaddPageComponent } from './vehicle-page/vehicleadd-page/vehiclea
 import { VehicleremovePageComponent } from './vehicle-page/vehicleremove-page/vehicleremove-page.component';
 import { FormsModule } from '@angular/forms';
 import { VehicleDetailsComponent } from './vehicle-page/vehicle-details/vehicle-details.component';
+import { AddRegistrationDocumentComponent } from './vehicle-page/vehicle-details/add-registration-document/add-registration-document.component';
+import { EditRegistrationDocumentComponent } from './vehicle-page/vehicle-details/edit-registration-document/edit-registration-document.component';
 
-const components = [DashboardComponent, VehiclePageComponent, VehicleremovePageComponent, VehicleaddPageComponent, VehicleDetailsComponent];
+const components = [
+  DashboardComponent,
+  VehiclePageComponent,
+  VehicleremovePageComponent,
+  VehicleaddPageComponent,
+  VehicleDetailsComponent,
+  AddRegistrationDocumentComponent,
+  EditRegistrationDocumentComponent
+];
 
 @NgModule({
   imports: [
