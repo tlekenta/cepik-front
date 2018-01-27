@@ -28,10 +28,10 @@
   <div class="well">Numery rejestracyjne</div>
   <table class="table table-hover table-bordered">
     <thead>
-    <tr>
-      <th>Numer rejestracyjny</th>
-      <th>Czy aktualny</th>
-    </tr>
+      <tr>
+        <th>Numer rejestracyjny</th>
+        <th>Czy aktualny</th>
+      </tr>
     </thead>
     <tbody>
     <tr *ngFor="let numer of numeryRejestracyjne">
@@ -43,6 +43,27 @@
   </table>
 
   <!--LISTA OC-->
+  <div class="well">Ubezpieczenia OC</div>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Data początku</th>
+        <th>Data końca</th>
+        <th>Numer polisy</th>
+        <th>Imię właściciela</th>
+        <th>Nazwisko właściciela</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let oc of ubezpieczeniaOc">
+        <th>{{oc.from}}</th>
+        <th>{{oc.from}}</th>
+        <th>{{oc.policyNumberWithPIN}}</th>
+        <th>{{oc.carOwner.firstName}}</th>
+        <th>{{oc.carOwner.lastName}}</th>
+      </tr>
+    </tbody>
+  </table>
 
   <!-- <button class="btn btn-danger" (click)="delete()">Usuń</button> -->
 </div>

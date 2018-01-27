@@ -14,6 +14,7 @@ import { HttpWrapperService } from './services/http-wrapper.service';
 import { VehicleService } from './services/cep/vehicle.service';
 import { RegistrationDocumentService } from './services/cep/registration-document.service';
 import { RegistrationNumberService } from './services/cep/registration-number.service';
+import { OcInsuranceService } from './services/cep/oc-insurance.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RegistrationNumberService } from './services/cep/registration-number.se
     HttpWrapperService,
     VehicleService,
     RegistrationDocumentService,
-    RegistrationNumberService
+    RegistrationNumberService,
+    OcInsuranceService
   ],
   bootstrap: [AppComponent]
 })

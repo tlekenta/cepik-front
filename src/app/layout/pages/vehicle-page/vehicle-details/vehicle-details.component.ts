@@ -6,6 +6,8 @@ import { RegistrationDocument } from '../../../../model/cep/registration-documen
 import { RegistrationDocumentService } from '../../../../services/cep/registration-document.service';
 import { RegistrationNumber } from '../../../../model/cep/registration-number';
 import { RegistrationNumberService } from '../../../../services/cep/registration-number.service';
+import { OcInsurance } from '../../../../model/cep/form/oc-insurance';
+import { OcInsuranceService } from '../../../../services/cep/oc-insurance.service';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -19,11 +21,13 @@ export class VehicleDetailsComponent implements OnInit {
   private marka = "";
   private dowodyRejestracyjne: RegistrationDocument[] = [];
   private numeryRejestracyjne: RegistrationNumber[] = [];
+  private ubezpieczeniaOc: OcInsurance[] = [];
 
   constructor(private route: ActivatedRoute,
               private service: VehicleService,
               private regService: RegistrationDocumentService,
-              private numberService: RegistrationNumberService) { }
+              private numberService: RegistrationNumberService,
+              private ocService: OcInsuranceService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -38,6 +42,10 @@ export class VehicleDetailsComponent implements OnInit {
           this.numberService.getAll()
             .subscribe(data => {
               this.numeryRejestracyjne = data.filter(numer => numer.vehicle.id == this.vehicleId);
+            });
+          this.ocService.getAll()
+            .subscribe(data => {
+              this.ubezpieczeniaOc = data.filter(oc => oc.vehicle.id == this.vehicleId);
             });
           this.service.getModelById(this.vehicle.model.id)
             .subscribe(data => {
