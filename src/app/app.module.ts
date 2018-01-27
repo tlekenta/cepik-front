@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { JwtHelper } from 'angular2-jwt';
 import { HttpWrapperService } from './services/http-wrapper.service';
 import { VehicleService } from './services/vehicle.service';
+import { RegistrationDocumentService } from './services/registration-document.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { VehicleService } from './services/vehicle.service';
     UserService,
     JwtHelper,
     HttpWrapperService,
-    VehicleService
+    VehicleService,
+    RegistrationDocumentService
   ],
   bootstrap: [AppComponent]
 })

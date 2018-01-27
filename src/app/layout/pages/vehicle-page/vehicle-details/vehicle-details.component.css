@@ -1,3 +1,9 @@
 .container{
     margin-top: 15px;
 }
+
+.well{
+    padding: 10px 15px 10px 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
