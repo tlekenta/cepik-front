@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleForm } from '../../../../model/cep/form/vehicle-form';
-import { VehicleService } from '../../../../services/vehicle.service';
+import { VehicleService } from '../../../../services/cep/vehicle.service';
 import { VehicleModel } from '../../../../model/cep/vehicle-model';
 
 @Component({

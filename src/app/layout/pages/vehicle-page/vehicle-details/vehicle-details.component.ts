@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { VehicleService } from '../../../../services/vehicle.service';
+import { VehicleService } from '../../../../services/cep/vehicle.service';
 import { Vehicle } from '../../../../model/cep/vehicle';
 import { RegistrationDocument } from '../../../../model/cep/registration-document';
-import { RegistrationDocumentService } from '../../../../services/registration-document.service';
+import { RegistrationDocumentService } from '../../../../services/cep/registration-document.service';
 import { RegistrationNumber } from '../../../../model/cep/registration-number';
-import { RegistrationNumberService } from '../../../../services/registration-number.service';
+import { RegistrationNumberService } from '../../../../services/cep/registration-number.service';
 
 @Component({
   selector: 'app-vehicle-details',

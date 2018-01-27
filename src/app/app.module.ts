@@ -11,9 +11,9 @@ import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtHelper } from 'angular2-jwt';
 import { HttpWrapperService } from './services/http-wrapper.service';
-import { VehicleService } from './services/vehicle.service';
-import { RegistrationDocumentService } from './services/registration-document.service';
-import { RegistrationNumberService } from './services/registration-number.service';
+import { VehicleService } from './services/cep/vehicle.service';
+import { RegistrationDocumentService } from './services/cep/registration-document.service';
+import { RegistrationNumberService } from './services/cep/registration-number.service';
 
 @NgModule({
   declarations: [
