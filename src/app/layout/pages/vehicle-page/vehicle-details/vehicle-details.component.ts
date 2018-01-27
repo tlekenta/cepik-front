@@ -23,6 +23,7 @@ export class VehicleDetailsComponent implements OnInit {
   private numeryRejestracyjne: RegistrationNumber[] = [];
   private ubezpieczeniaOc: OcInsurance[] = [];
   private showAddDocument: boolean = false;
+  private showUpdateDocument: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private service: VehicleService,

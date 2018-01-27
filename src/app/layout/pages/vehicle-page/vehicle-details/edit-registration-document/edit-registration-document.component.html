@@ -1,0 +1,26 @@
+<form class="form-inline" #form="ngForm" (ngSubmit)="save()">
+
+  <label for="nr_seryjny">Numer seryjny:</label>
+  <select class="form-control" id="nr_seryjny" required>
+    <option *ngFor="let doc of actualDocuments"
+            [value]="doc"
+            name="nr_seryjny"
+            [(ngModel)]="selectedDocument"
+            ngDefaultControl>
+      {{doc.sequence}}
+    </option>
+  </select>
+
+  <label for="data_do">Data ważności:</label>
+  <input class="form-control"
+         id="data_do"
+         name="data_do"
+         [(ngModel)]="registrationDocumentForm.to"
+         type="date"
+         required>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Przedłuż</button>
+  <div class="alert alert-danger" *ngIf="error">{{errorMsg}}</div>
+  <div class="alert alert-success" *ngIf="success">{{successMsg}}</div>
+
+</form>

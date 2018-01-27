@@ -16,8 +16,12 @@ export class RegistrationDocumentService {
 
   save(document: RegistrationDocumentForm): Observable<RegistrationDocument> {
     let body = JSON.stringify(document);
-    console.log(body);
     return this.http.post<RegistrationDocument>(SERVER_URL + "/registrationDocument", body);
+  }
+
+  update(id: number, document: RegistrationDocumentForm): Observable<RegistrationDocument> {
+    let body = JSON.stringify(document);
+    return this.http.put<RegistrationDocument>(SERVER_URL + "/registrationDocument/" + id, body);
   }
 
 }
