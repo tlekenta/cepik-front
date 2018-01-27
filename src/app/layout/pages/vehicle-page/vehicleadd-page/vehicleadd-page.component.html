@@ -1,3 +1,264 @@
-<p>
-  vehicleadd-page works!
-</p>
+<form #vehicleForm="ngForm" (ngSubmit)="add()">
+  <!--MARKA-->
+  <div class="form-group">
+    <label for="marka">Marka</label>
+    <select class="form-control" id="marka" (change)="brandChanged($event.target.value)" required>
+      <option *ngFor="let brand of brands" [value]="brand.id">{{brand.brand}}</option>
+    </select>
+  </div>
+
+  <!--MODEL-->
+  <div class="form-group">
+    <label for="model">Model</label>
+    <select class="form-control" id="model" required>
+      <option *ngFor="let model of models" name="model" [value]="model.id" [(ngModel)]="vehicle.carModelId" ngDefaultControl>{{model.model}}</option>
+    </select>
+  </div>
+
+  <!--ROK PRODUKCJI-->
+  <div class="form-group">
+    <label for="prodYear">Rok produkcji</label>
+    <input class="form-control"
+           name="prodYear"
+           pattern="[0-9]+"
+           [(ngModel)]="vehicle.productionYear"
+           id="prodYear"
+           required
+           maxlength="4"
+           minlength="4"
+           #prodYear="ngModel">
+    <div *ngIf="prodYear.invalid && (prodYear.dirty || prodYear.touched)"
+         class="alert alert-danger">
+      <div *ngIf="prodYear.errors.required">
+        Rok produkcji musi być podany
+      </div>
+      <div *ngIf="prodYear.errors.minlength">
+        Rok produkcji musi mieć dokładnie 4 znaki
+      </div>
+      <div *ngIf="prodYear.errors.pattern">
+        Rok produkcji może składać się tylko z cyfr
+      </div>
+    </div>
+  </div>
+
+  <!--VIN-->
+  <div class="form-group">
+    <label for="vin">Numer VIN</label>
+    <input class="form-control"
+           name="vin"
+           [(ngModel)]="vehicle.vin"
+           id="vin"
+           required
+           maxlength="17"
+           minlength="17"
+           #vin="ngModel">
+    <div *ngIf="vin.invalid && (vin.dirty || vin.touched)"
+         class="alert alert-danger">
+      <div *ngIf="vin.errors.required">
+        Numer vin musi być podany
+      </div>
+      <div *ngIf="vin.errors.minlength">
+        Numer vin musi  mieć dokładnie 17 znaków
+      </div>
+    </div>
+  </div>
+
+  <!--NUMER SILNIKA-->
+  <div class="form-group">
+    <label for="engNum">Numer silnika</label>
+    <input class="form-control"
+           name="engNum"
+           [(ngModel)]="vehicle.engineNumber"
+           id="engNum"
+           required
+           #engNum="ngModel">
+    <div *ngIf="engNum.invalid && (engNum.dirty || engNum.touched)"
+         class="alert alert-danger">
+      <div *ngIf="engNum.errors.required">
+        Numer silnika musi być podany
+      </div>
+    </div>
+  </div>
+
+  <!--MOC SILNIKA-->
+  <div class="form-group">
+    <label for="engPow">Moc silnika [KM]</label>
+    <input class="form-control"
+           pattern="[0-9]+"
+           name="engPow"
+           [(ngModel)]="vehicle.enginePower"
+           id="engPow"
+           required
+           #engPow="ngModel">
+    <div *ngIf="engPow.invalid && (engPow.dirty || engPow.touched)"
+         class="alert alert-danger">
+      <div *ngIf="engPow.errors.required">
+        Moc silnika musi być podana
+      </div>
+      <div *ngIf="engPow.errors.pattern">
+        Moc silnika może składać się tylko z cyfr
+      </div>
+    </div>
+  </div>
+
+  <!--POJEMNOSC SILNIKA-->
+  <div class="form-group">
+    <label for="engCap">Pojemność silnika (w litrach)</label>
+    <input class="form-control"
+           pattern="[0-9]+(\.[0-9]+)?"
+           name="engCap"
+           [(ngModel)]="vehicle.engineCapacity"
+           id="engCap"
+           required
+           #engCap="ngModel">
+    <div *ngIf="engCap.invalid && (engCap.dirty || engCap.touched)"
+         class="alert alert-danger">
+      <div *ngIf="engCap.errors.required">
+        Pojemność silnika musi być podana
+      </div>
+      <div *ngIf="engCap.errors.pattern">
+        Pojemność silnika może składać się tylko z cyfr oddzielonych kropką
+      </div>
+    </div>
+  </div>
+
+  <!--LICZBA MIEJSC-->
+  <div class="form-group">
+    <label for="seats">Liczba miejsc</label>
+    <input class="form-control"
+           pattern="[0-9]+"
+           name="seats"
+           [(ngModel)]="vehicle.numberOfSeats"
+           id="seats"
+           required
+           #seats="ngModel">
+    <div *ngIf="seats.invalid && (seats.dirty || seats.touched)"
+         class="alert alert-danger">
+      <div *ngIf="seats.errors.required">
+        Liczba miejsc musi być podana
+      </div>
+      <div *ngIf="seats.errors.pattern">
+        Liczba miejsc może składać się tylko z cyfr oddzielonych kropką
+      </div>
+    </div>
+  </div>
+
+  <!--DATA PIERWSZEJ REJSTRACJI-->
+  <div class="form-group">
+    <label for="regDate">Data pierwszej rejstracji</label>
+    <input class="form-control"
+           name="regDate"
+           type="date"
+           [(ngModel)]="vehicle.firstRegistrationDate"
+           id="regDate"
+           required
+           #regDate="ngModel">
+    <div *ngIf="regDate.invalid && (regDate.dirty || regDate.touched)"
+         class="alert alert-danger">
+      <div *ngIf="regDate.errors.required">
+        Data pierwszej rejestracji musi być podana
+      </div>
+    </div>
+  </div>
+
+  <!--MASA WLASNA-->
+  <div class="form-group">
+    <label for="curbWeight">Masa własna [kg]</label>
+    <input class="form-control"
+           name="curbWeight"
+           pattern="[0-9]+"
+           [(ngModel)]="vehicle.curbWeight"
+           id="curbWeight"
+           required
+           #curbWeight="ngModel">
+    <div *ngIf="curbWeight.invalid && (curbWeight.dirty || curbWeight.touched)"
+         class="alert alert-danger">
+      <div *ngIf="curbWeight.errors.required">
+        Masa własna musi być podana
+      </div>
+      <div *ngIf="curbWeight.errors.pattern">
+        Masa własna może składać się tylko z cyfr
+      </div>
+    </div>
+  </div>
+
+  <!--DMC-->
+  <div class="form-group">
+    <label for="dmc">Dopuszczalna masa całkowita [kg]</label>
+    <input class="form-control"
+           name="dmc"
+           pattern="[0-9]+"
+           [(ngModel)]="vehicle.permissibleLadenMass"
+           id="dmc"
+           required
+           #dmc="ngModel">
+    <div *ngIf="dmc.invalid && (dmc.dirty || dmc.touched)"
+         class="alert alert-danger">
+      <div *ngIf="dmc.errors.required">
+        Dopuszczalna masa całkowita musi być podana
+      </div>
+      <div *ngIf="dmc.errors.pattern">
+        Dopuszczalna masa całkowita może składać się tylko z cyfr
+      </div>
+    </div>
+  </div>
+
+  <!--LICZBA OSI-->
+  <div class="form-group">
+    <label for="axies">Liczba osi</label>
+    <input class="form-control"
+           name="axies"
+           pattern="[0-9]+"
+           [(ngModel)]="vehicle.numberOfAxies"
+           id="axies"
+           required
+           #axies="ngModel">
+    <div *ngIf="axies.invalid && (axies.dirty || axies.touched)"
+         class="alert alert-danger">
+      <div *ngIf="axies.errors.required">
+        Liczba osi musi być podana
+      </div>
+      <div *ngIf="axies.errors.pattern">
+        Liczba osi może składać się tylko z cyfr
+      </div>
+    </div>
+  </div>
+
+  <!--DATA OSTATNIEGO SERWISU-->
+  <div class="form-group">
+    <label for="servDate">Data ostatniego serwisu</label>
+    <input class="form-control"
+           name="servDate"
+           type="date"
+           [(ngModel)]="vehicle.servicingDate"
+           id="servDate"
+           required
+           #servDate="ngModel">
+    <div *ngIf="servDate.invalid && (servDate.dirty || servDate.touched)"
+         class="alert alert-danger">
+      <div *ngIf="servDate.errors.required">
+        Data ostatniego serwisu musi być podana
+      </div>
+    </div>
+  </div>
+
+  <!--UPRZYWILEJOWANY-->
+  <div class="form-group">
+    <input class="form-input"
+           type="checkbox"
+           name="priv"
+           [(ngModel)]="vehicle.privileged"
+           id="priv">
+    <label for="priv">Uprzywilejowany?</label>
+  </div>
+
+  <div *ngIf="submited">
+    <div *ngIf="errorMsg != ''" class="alert alert-danger">
+      {{errorMsg}}
+    </div>
+    <div *ngIf="errorMsg == ''" class="alert alert-success">
+      {{successMsg}}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!vehicleForm.valid">Dodaj</button>
+</form>

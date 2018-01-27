@@ -13,9 +13,9 @@ export class HttpWrapperService {
     return this.httpClient.get<T>(URL, {headers: h});
   }
 
-  post(URL: string, body: string):  Observable<Object> {
-    let h = new HttpHeaders({'Content-Type': 'application/json', TOKEN_HEADER: sessionStorage.getItem(TOKEN_HEADER)});
-    return this.httpClient.post(URL, body,{headers: h});
+  post<T>(URL: string, body: string):  Observable<Object> {
+    let h = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem(TOKEN_HEADER)});
+    return this.httpClient.post<T>(URL, body,{headers: h});
   }
 
 }
