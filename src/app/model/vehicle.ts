@@ -1,8 +1,15 @@
 export class Vehicle {
-    id: number;
-    numer_rejestracyjny: string;
-    marka: string;
-    model: string;
-    pojemnnosc_silnika: number;
-    // itd
+  model: {model: {model: string, id: number}, brand: {brand: string, id: number}};
+  productionYear: string;
+  vin: string;
+  engineNumber: string;
+  enginePower: number;
+  engineCapacity: number;
+  numberOfSeats: number;
+  firstRegistrationDate: Date;
+  curbWeight: number;
+  permissibleLadenMass: number;
+  numberOfAxies: number;
+  privileged: boolean;
+  servicingDate: Date;
 }

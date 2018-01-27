@@ -5,19 +5,37 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Numer rejestracyjny</th>
                 <th>Marka</th>
                 <th>Model</th>
+                <th>Rok produkcji</th>
+                <th>VIN</th>
+                <th>Numer silnika</th>
+                <th>Moc silnika</th>
                 <th>Pojemność silnika</th>
+                <th>Liczba miejsc</th>
+                <th>Data pierwszej rejestracji</th>
+                <th>Masa własna</th>
+                <th>DMC</th>
+                <th>Liczba osi</th>
+                <th>Data serwisowanis</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let vehicle of table">
-                <th>{{vehicle.id}}</th>
-                <th>{{vehicle.numer_rejestracyjny}}</th>
-                <th>{{vehicle.marka}}</th>
-                <th>{{vehicle.model}}</th>
-                <th>{{vehicle.pojemnnosc_silnika}}</th>
+            <tr *ngFor="let vehicle of table;let i = index">
+                <th>{{i + 1}}</th>
+                <th>{{vehicle.model.brand.brand}}</th>
+                <th>{{vehicle.model.model}}</th>
+                <th>{{vehicle.productionYear}}</th>
+                <th>{{vehicle.vin}}</th>
+                <th>{{vehicle.engineNumber}}</th>
+                <th>{{vehicle.enginePower}}</th>
+                <th>{{vehicle.engineCapacity}}</th>
+                <th>{{vehicle.numberOfSeats}}</th>
+                <th>{{vehicle.firstRegistrationDate}}</th>
+                <th>{{vehicle.curbWeight}}</th>
+                <th>{{vehicle.permissibleLadenMass}}</th>
+                <th>{{vehicle.numberOfAxies}}</th>
+                <th>{{vehicle.servicingDate}}</th>
             </tr>
         </tbody>
     </table>

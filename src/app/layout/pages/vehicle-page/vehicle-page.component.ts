@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehicle } from '../../../model/vehicle';
+import { VehicleService } from '../../../services/vehicle.service';
 
 @Component({
   selector: 'app-vehicle-page',
@@ -10,17 +11,12 @@ export class VehiclePageComponent implements OnInit {
   title = "Vehicle";
 
   table: Array<Vehicle> = [];
-  constructor() { }
+  constructor(private vehicleService: VehicleService) { }
 
   ngOnInit() {
-      this.table.push({id: 1, numer_rejestracyjny: 'WPR 89TM', marka: 'Opel', model: 'Corsa', pojemnnosc_silnika: 1.2});
-      this.table.push({id: 1, numer_rejestracyjny: 'WPR 89TM', marka: 'Opel', model: 'Corsa', pojemnnosc_silnika: 1.2});
-      this.table.push({id: 1, numer_rejestracyjny: 'WPR 89TM', marka: 'Opel', model: 'Corsa', pojemnnosc_silnika: 1.2});
-      this.table.push({id: 1, numer_rejestracyjny: 'WPR 89TM', marka: 'Opel', model: 'Corsa', pojemnnosc_silnika: 1.2});
-      this.table.push({id: 1, numer_rejestracyjny: 'WPR 89TM', marka: 'Opel', model: 'Corsa', pojemnnosc_silnika: 1.2});
-      this.table.push({id: 1, numer_rejestracyjny: 'WPR 89TM', marka: 'Opel', model: 'Corsa', pojemnnosc_silnika: 1.2});
-      this.table.push({id: 1, numer_rejestracyjny: 'WPR 89TM', marka: 'Opel', model: 'Corsa', pojemnnosc_silnika: 1.2});
-      this.table.push({id: 1, numer_rejestracyjny: 'WPR 89TM', marka: 'Opel', model: 'Corsa', pojemnnosc_silnika: 1.2});
+    this.vehicleService.getAll().subscribe(data => {
+      this.table = data;
+    })
   }
 
 }

@@ -32,7 +32,7 @@ export class UserService {
 
   register(login: String, email: String, password: String): Promise<{success: boolean, desc: string}> {
     let h = new HttpHeaders({'Content-Type': 'application/json'});
-    return this.http.post(SERVER_URL + '/users/registration', JSON.stringify({name: login, password: password, email: email}), {headers: h})
+    return this.http.post(SERVER_URL + '/users', JSON.stringify({name: login, password: password, email: email}), {headers: h})
     .toPromise()
     .then(resp => {
         if (resp.hasOwnProperty('name')) {
