@@ -7,3 +7,7 @@
     margin-top: 15px;
     margin-bottom: 10px;
 }
+
+.vehicle-details > tr > th {
+    font-weight: normal;
+}

@@ -1,69 +1,84 @@
-<div class="container">
-  <div class="well">Dane samochodu</div>
-  <div class="row">
-    <div class="col-sm-3"><b>Marka:</b></div>
-    <div class="col-sm-3">{{marka}}</div>
-    <div class="col-sm-3"><b>Model:</b></div>
-    <div class="col-sm-3">{{model}}</div>
-  </div>
+<div class="well">Dane samochodu</div>
+<table class="table table-hover table-bordered">
+  <tbody class="vehicle-details">
+  <tr>
+    <th><b>Marka</b></th>
+    <th>{{marka}}</th>
+  </tr>
+  <tr>
+    <th><b>Model</b></th>
+    <th>{{model}}</th>
+  </tr>
+  <tr>
+    <th><b>VIN</b></th>
+    <th>{{vehicle.vin}}</th>
+  </tr>
+  <tr>
+    <th><b>Numer silnika</b></th>
+    <th>{{vehicle.engineNumber}}</th>
+  </tr>
+  </tbody>
+</table>
+<hr class="divider">
 
-  <!--LISTA DOWODÓW REJSTRACYJNYCH-->
-  <div class="well">Dowody rejestracyjne</div>
-  <table class="table table-hover table-bordered">
-    <thead>
-      <tr>
-        <th>Numer seryjny</th>
-        <th>Data ważności</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let dowod of dowodyRejestracyjne">
-        <th>{{dowod.sequence}}</th>
-        <th>{{dowod.to}}</th>
-      </tr>
-    </tbody>
-  </table>
+<!--LISTA DOWODÓW REJSTRACYJNYCH-->
+<div class="well">Dowody rejestracyjne</div>
+<table class="table table-hover table-bordered">
+  <thead>
+  <tr>
+    <th>Numer seryjny</th>
+    <th>Data ważności</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let dowod of dowodyRejestracyjne">
+    <th>{{dowod.sequence}}</th>
+    <th>{{dowod.to}}</th>
+  </tr>
+  </tbody>
+</table>
+<hr class="divider">
 
-  <!--LISTA TABLIC REJSTRACYJNYCH-->
-  <div class="well">Numery rejestracyjne</div>
-  <table class="table table-hover table-bordered">
-    <thead>
-      <tr>
-        <th>Numer rejestracyjny</th>
-        <th>Czy aktualny</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let numer of numeryRejestracyjne">
-      <th>{{numer.registrationNumber}}</th>
-      <th *ngIf="numer.actual">TAK</th>
-      <th *ngIf="!numer.actual">NIE</th>
-    </tr>
-    </tbody>
-  </table>
+<!--LISTA TABLIC REJSTRACYJNYCH-->
+<div class="well">Numery rejestracyjne</div>
+<table class="table table-hover table-bordered">
+  <thead>
+  <tr>
+    <th>Numer rejestracyjny</th>
+    <th>Czy aktualny</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let numer of numeryRejestracyjne">
+    <th>{{numer.registrationNumber}}</th>
+    <th *ngIf="numer.actual">TAK</th>
+    <th *ngIf="!numer.actual">NIE</th>
+  </tr>
+  </tbody>
+</table>
+<hr class="divider">
 
-  <!--LISTA OC-->
-  <div class="well">Ubezpieczenia OC</div>
-  <table class="table table-hover table-bordered">
-    <thead>
-      <tr>
-        <th>Data początku</th>
-        <th>Data końca</th>
-        <th>Numer polisy</th>
-        <th>Imię właściciela</th>
-        <th>Nazwisko właściciela</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let oc of ubezpieczeniaOc">
-        <th>{{oc.from}}</th>
-        <th>{{oc.from}}</th>
-        <th>{{oc.policyNumberWithPIN}}</th>
-        <th>{{oc.carOwner.firstName}}</th>
-        <th>{{oc.carOwner.lastName}}</th>
-      </tr>
-    </tbody>
-  </table>
+<!--LISTA OC-->
+<div class="well">Ubezpieczenia OC</div>
+<table class="table table-hover table-bordered">
+  <thead>
+  <tr>
+    <th>Data początku</th>
+    <th>Data końca</th>
+    <th>Numer polisy</th>
+    <th>Imię właściciela</th>
+    <th>Nazwisko właściciela</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let oc of ubezpieczeniaOc">
+    <th>{{oc.from}}</th>
+    <th>{{oc.from}}</th>
+    <th>{{oc.policyNumberWithPIN}}</th>
+    <th>{{oc.carOwner.firstName}}</th>
+    <th>{{oc.carOwner.lastName}}</th>
+  </tr>
+  </tbody>
+</table>
 
-  <!-- <button class="btn btn-danger" (click)="delete()">Usuń</button> -->
-</div>
+<!-- <button class="btn btn-danger" (click)="delete()">Usuń</button> -->
