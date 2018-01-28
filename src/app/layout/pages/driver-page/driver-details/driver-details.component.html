@@ -80,4 +80,18 @@
 <hr class="divider">
 
 <div class="well">Punkty karne</div>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Liczba</th>
+      <th>Data przyznania</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let point of points">
+      <th>{{point.count}}</th>
+      <th>{{point.date}}</th>
+    </tr>
+  </tbody>
+</table>
 <hr class="divider">

@@ -6,6 +6,8 @@ import { DrivingLicenceService } from '../../../../services/cek/driving-licence.
 import { DrivingLicence } from '../../../../model/cek/driving-licence';
 import { DriverAuthorisationService } from '../../../../services/cek/driver-authorisation.service';
 import { Authorisation } from '../../../../model/cek/authorisation';
+import { PenaltyPoints } from '../../../../model/cek/penalty-points';
+import { PenaltyPointsService } from '../../../../services/cek/penalty-points.service';
 
 @Component({
   selector: 'app-driver-details',
@@ -17,11 +19,13 @@ export class DriverDetailsComponent implements OnInit {
   private driver: Driver;
   private licenses: DrivingLicence[];
   private authorisations: Authorisation[];
+  private points: PenaltyPoints[];
 
   constructor(private route: ActivatedRoute,
               private service: DriverService,
               private licenceService: DrivingLicenceService,
-              private authService: DriverAuthorisationService) { }
+              private authService: DriverAuthorisationService,
+              private ppService: PenaltyPointsService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -39,6 +43,11 @@ export class DriverDetailsComponent implements OnInit {
             .toPromise()
             .then(resp => {
               this.authorisations = resp.filter(auth => auth.driver.id == this.driverId);
+            });
+          this.ppService.getAll()
+            .toPromise()
+            .then(resp => {
+              this.points = resp.filter(point => point.driver.id == this.driverId);
             });
         });
     });
