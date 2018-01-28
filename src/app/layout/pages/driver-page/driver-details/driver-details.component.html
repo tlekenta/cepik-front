@@ -42,6 +42,22 @@
 <hr class="divider">
 
 <div class="well">Dokumenty prawa jazdy</div>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Data wydania</th>
+      <th>Data ważności</th>
+      <th>Numer seryjny</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lic of licenses">
+      <th>{{lic.from}}</th>
+      <th>{{lic.to}}</th>
+      <th>{{lic.sequence}}</th>
+    </tr>
+  </tbody>
+</table>
 <hr class="divider">
 
 <div class="well">Kategorie prawa jazdy</div>
