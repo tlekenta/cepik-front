@@ -1,0 +1,23 @@
+<form class="form-inline" #form="ngForm" (ngSubmit)="save()">
+
+  <label for="nr">Nowy numer:</label>
+  <input class="form-control"
+         id="nr"
+         name="nr"
+         [(ngModel)]="regForm.registrationNumber"
+         minlength="7"
+         maxlength="7"
+         required
+         #nr="ngModel">
+
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Dodaj</button>
+  <div *ngIf="nr.invalid && (nr.dirty || nr.touched) && nr.errors.required" class="alert alert-danger">
+      Podaj nowy numer rejestracyjny
+  </div>
+  <div *ngIf="nr.invalid && (nr.dirty || nr.touched) && nr.errors.minlength" class="alert alert-danger">
+      Numer rejestracyjny musi mieć dokładnie 7 znaków
+  </div>
+  <div class="alert alert-danger" *ngIf="error">{{errorMsg}}</div>
+  <div class="alert alert-success" *ngIf="success">{{successMsg}}</div>
+
+</form>

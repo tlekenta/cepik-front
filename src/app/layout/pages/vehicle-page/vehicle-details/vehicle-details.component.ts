@@ -24,6 +24,7 @@ export class VehicleDetailsComponent implements OnInit {
   private ubezpieczeniaOc: OcInsurance[] = [];
   private showAddDocument: boolean = false;
   private showUpdateDocument: boolean = false;
+  private showAddNumber: boolean = false;
   private updateServiceDate: boolean = false;
 
   constructor(private route: ActivatedRoute,

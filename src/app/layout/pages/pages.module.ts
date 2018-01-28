@@ -10,6 +10,7 @@ import { VehicleDetailsComponent } from './vehicle-page/vehicle-details/vehicle-
 import { AddRegistrationDocumentComponent } from './vehicle-page/vehicle-details/add-registration-document/add-registration-document.component';
 import { EditRegistrationDocumentComponent } from './vehicle-page/vehicle-details/edit-registration-document/edit-registration-document.component';
 import { UpdateServiceDateComponent } from './vehicle-page/vehicle-details/update-service-date/update-service-date.component';
+import { UpdateRegisterNumberComponent } from './vehicle-page/vehicle-details/update-register-number/update-register-number.component';
 
 const components = [
   DashboardComponent,
@@ -19,7 +20,8 @@ const components = [
   VehicleDetailsComponent,
   AddRegistrationDocumentComponent,
   EditRegistrationDocumentComponent,
-  UpdateServiceDateComponent
+  UpdateServiceDateComponent,
+  UpdateRegisterNumberComponent
 ];
 
 @NgModule({

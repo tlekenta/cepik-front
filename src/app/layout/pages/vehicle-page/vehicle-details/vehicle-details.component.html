@@ -27,7 +27,7 @@
 <hr class="divider">
 
 <!--LISTA DOWODÓW REJSTRACYJNYCH-->
-<div class="well">Dowody rejestracyjne | <p (click)="showAddDocument= !showAddDocument; showUpdateDocument=false">dodaj dowód</p> | <p (click)="showUpdateDocument = !showUpdateDocument; showAddDocument=false">przedłuż ważność</p> |</div>
+<div class="well">Dowody rejestracyjne | <p (click)="showAddDocument= !showAddDocument; showUpdateDocument=false">dodaj dowód</p> | <p (click)="showUpdateDocument = !showUpdateDocument; showAddDocument=false">przedłuż ważność</p></div>
 <app-add-registration-document [vehicleId]="vehicleId" *ngIf="showAddDocument"></app-add-registration-document>
 <app-edit-registration-document [vehicleId]="vehicleId" [actualDocuments]="dowodyRejestracyjne" *ngIf="showUpdateDocument"></app-edit-registration-document>
 <table class="table table-hover table-bordered">
@@ -47,7 +47,8 @@
 <hr class="divider">
 
 <!--LISTA TABLIC REJSTRACYJNYCH-->
-<div class="well">Numery rejestracyjne</div>
+<div class="well">Numery rejestracyjne | <p (click)="showAddNumber = !showAddNumber">Zaktualizuj numer rejestracyjny</p></div>
+<app-update-register-number *ngIf="showAddNumber" [vehicleId]="vehicle.id" [actualNumbers]="numeryRejestracyjne"></app-update-register-number>
 <table class="table table-hover table-bordered">
   <thead>
   <tr>
