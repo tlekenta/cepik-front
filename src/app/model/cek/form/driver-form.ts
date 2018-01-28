@@ -7,7 +7,7 @@ export class DriverForm{
   houseNumber: string;
   residenceNumber: string;
   pesel: string;
-  frirstName: string;
+  firstName: string;
   lastName: string;
   examinationElapseDate: Date;
 
@@ -19,7 +19,7 @@ export class DriverForm{
       this.houseNumber = d.address.houseNumber;
       this.residenceNumber = d.address.residenceNumber;
       this.pesel = d.pesel;
-      this.frirstName = d.frirstName;
+      this.firstName = d.frirstName;
       this.lastName = d.lastName;
       this.examinationElapseDate = d.examinationElapseDate;
     }

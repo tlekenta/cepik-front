@@ -1,3 +1,175 @@
-<p>
-  driver-add works!
-</p>
+<form #driverForm="ngForm" (ngSubmit)="add()">
+  <!--IMIĘ-->
+  <div class="form-group">
+    <label for="firstName">Imię</label>
+    <input class="form-control"
+           name="firstName"
+           [(ngModel)]="driver.firstName"
+           id="firstName"
+           required
+           #firstName="ngModel">
+    <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+         class="alert alert-danger">
+      <div *ngIf="firstName.errors.required">
+       Imię musi być podane
+      </div>
+    </div>
+  </div>
+
+  <!--NAZWISKO-->
+  <div class="form-group">
+    <label for="last">Nazwisko</label>
+    <input class="form-control"
+           name="last"
+           [(ngModel)]="driver.lastName"
+           id="last"
+           required
+           #last="ngModel">
+    <div *ngIf="last.invalid && (last.dirty || last.touched)"
+         class="alert alert-danger">
+      <div *ngIf="last.errors.required">
+        Nazwisko musi być podane
+      </div>
+    </div>
+  </div>
+
+  <!--PESEL-->
+  <div class="form-group">
+    <label for="pesel">PESEL</label>
+    <input class="form-control"
+           name="pesel"
+           [(ngModel)]="driver.pesel"
+           id="pesel"
+           required
+           pattern="[0-9]{11}"
+           maxlength="11"
+           #pesel="ngModel">
+    <div *ngIf="pesel.invalid && (pesel.dirty || pesel.touched)"
+         class="alert alert-danger">
+      <div *ngIf="pesel.errors.required">
+        Pesel musi być podany
+      </div>
+      <div *ngIf="pesel.errors.pattern">
+        Pesel musi składać się z dokładnie 11 cyfr
+      </div>
+    </div>
+  </div>
+
+  <!--DATA WAŻNOŚCI BADAŃ LEKARSKICH-->
+  <div class="form-group">
+    <label for="data">Data ważności badań lekarskich</label>
+    <input class="form-control"
+           name="data"
+           type="date"
+           [(ngModel)]="driver.examinationElapseDate"
+           id="data"
+           required
+           #data="ngModel">
+    <div *ngIf="data.invalid && (data.dirty || data.touched)"
+         class="alert alert-danger">
+      <div *ngIf="data.errors.required">
+        Pesel musi być podany
+      </div>
+    </div>
+  </div>
+
+  <!--ULICA-->
+  <div class="form-group">
+    <label for="street">Ulica</label>
+    <input class="form-control"
+           name="street"
+           [(ngModel)]="driver.street"
+           id="street"
+           required
+           #street="ngModel">
+    <div *ngIf="street.invalid && (street.dirty || street.touched)"
+         class="alert alert-danger">
+      <div *ngIf="street.errors.required">
+        Ulica musi być podana
+      </div>
+    </div>
+  </div>
+
+  <!--NUMER DOMU-->
+  <div class="form-group">
+    <label for="dom">Numer domu</label>
+    <input class="form-control"
+           name="dom"
+           [(ngModel)]="driver.houseNumber"
+           id="dom"
+           required
+           pattern="[0-9]+[A-Za-z]?"
+           #dom="ngModel">
+    <div *ngIf="dom.invalid && (dom.dirty || dom.touched)"
+         class="alert alert-danger">
+      <div *ngIf="dom.errors.required">
+        Numer domu musi być podany
+      </div>
+      <div *ngIf="dom.errors.pattern">
+        Numer domu może składać się tylko z cyfr i jednej litery na końcu
+      </div>
+    </div>
+  </div>
+
+  <!--NUMER MIESZKANIA-->
+  <div class="form-group">
+    <label for="m">Numer mieszkania</label>
+    <input class="form-control"
+           name="m"
+           [(ngModel)]="driver.residenceNumber"
+           id="m"
+           required
+           pattern="[0-9]+[A-Za-z]?"
+           #m="ngModel">
+    <div *ngIf="m.invalid && (m.dirty || m.touched)"
+         class="alert alert-danger">
+      <div *ngIf="m.errors.required">
+        Numer mieszkania musi być podany
+      </div>
+      <div *ngIf="m.errors.pattern">
+        Numer mieszkania może składać się tylko z cyfr i jednej litery na końcu
+      </div>
+    </div>
+  </div>
+
+  <!--KOD POCZTOWY-->
+  <div class="form-group">
+    <label for="zip">Kod pocztowy</label>
+    <input class="form-control"
+           name="zip"
+           [(ngModel)]="driver.zipCode"
+           id="zip"
+           placeholder="xx-xxx"
+           required
+           pattern="[0-9]{2}-[0-9]{3}"
+           maxlength="6"
+           #zip="ngModel">
+    <div *ngIf="zip.invalid && (zip.dirty || zip.touched)"
+         class="alert alert-danger">
+      <div *ngIf="zip.errors.required">
+        Kod pocztowy musi być podany
+      </div>
+      <div *ngIf="zip.errors.pattern">
+        Kod pocztowy musi być w formacie xx-xxx
+      </div>
+    </div>
+  </div>
+
+  <!--MIASTO-->
+  <div class="form-group">
+    <label for="city">Misto</label>
+    <input class="form-control"
+           name="city"
+           [(ngModel)]="driver.city"
+           id="city"
+           #city="ngModel">
+    <div *ngIf="city.invalid && (city.dirty || city.touched)"
+         class="alert alert-danger">
+      <div *ngIf="city.errors.required">
+        Miasto musi być podane
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!driverForm.valid">Dodaj</button>
+</form>
