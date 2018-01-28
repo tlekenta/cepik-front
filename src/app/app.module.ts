@@ -17,6 +17,7 @@ import { RegistrationNumberService } from './services/cep/registration-number.se
 import { OcInsuranceService } from './services/cep/oc-insurance.service';
 import { DriverService } from './services/cek/driver.service';
 import { DrivingLicenceService } from './services/cek/driving-licence.service';
+import { DriverAuthorisationService } from './services/cek/driver-authorisation.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DrivingLicenceService } from './services/cek/driving-licence.service';
     RegistrationNumberService,
     OcInsuranceService,
     DriverService,
-    DrivingLicenceService
+    DrivingLicenceService,
+    DriverAuthorisationService
   ],
   bootstrap: [AppComponent]
 })

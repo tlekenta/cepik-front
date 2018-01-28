@@ -61,6 +61,22 @@
 <hr class="divider">
 
 <div class="well">Kategorie prawa jazdy</div>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Kategoria</th>
+      <th>Data przyznania</th>
+      <th>Data ważności</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let auth of authorisations">
+      <th>{{auth.category}}</th>
+      <th>{{auth.from}}</th>
+      <th>{{auth.to}}</th>
+    </tr>
+  </tbody>
+</table>
 <hr class="divider">
 
 <div class="well">Punkty karne</div>

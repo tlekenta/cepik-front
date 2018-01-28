@@ -4,6 +4,8 @@ import { Driver } from '../../../../model/cek/driver';
 import { DriverService } from '../../../../services/cek/driver.service';
 import { DrivingLicenceService } from '../../../../services/cek/driving-licence.service';
 import { DrivingLicence } from '../../../../model/cek/driving-licence';
+import { DriverAuthorisationService } from '../../../../services/cek/driver-authorisation.service';
+import { Authorisation } from '../../../../model/cek/authorisation';
 
 @Component({
   selector: 'app-driver-details',
@@ -14,10 +16,12 @@ export class DriverDetailsComponent implements OnInit {
   private driverId: number;
   private driver: Driver;
   private licenses: DrivingLicence[];
+  private authorisations: Authorisation[];
 
   constructor(private route: ActivatedRoute,
               private service: DriverService,
-              private licenceService: DrivingLicenceService) { }
+              private licenceService: DrivingLicenceService,
+              private authService: DriverAuthorisationService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -30,6 +34,11 @@ export class DriverDetailsComponent implements OnInit {
             .toPromise()
             .then(resp => {
               this.licenses = resp.filter(lic => lic.driver.id == this.driverId);
+            });
+          this.authService.getAll()
+            .toPromise()
+            .then(resp => {
+              this.authorisations = resp.filter(auth => auth.driver.id == this.driverId);
             });
         });
     });
