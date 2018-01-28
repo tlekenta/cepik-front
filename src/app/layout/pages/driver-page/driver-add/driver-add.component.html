@@ -171,5 +171,7 @@
     </div>
   </div>
 
+  <div *ngIf="success" class="alert alert-success">{{successMsg}}</div>
+  <div *ngIf="error" class="alert alert-danger">{{errorMsg}}</div>
   <button type="submit" class="btn btn-primary" [disabled]="!driverForm.valid">Dodaj</button>
 </form>
