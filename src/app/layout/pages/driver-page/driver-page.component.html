@@ -1,3 +1,22 @@
-<p>
-  driver-page works!
-</p>
+<h1 class="page-title">{{title}}</h1>
+
+<div class="table-responsive">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>PESEL</th>
+        <th>Data ważności badań</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let driver of table">
+        <th>{{driver.firstName}}</th>
+        <th>{{driver.lastName}}</th>
+        <th>{{driver.pesel}}</th>
+        <th>{{driver.examinationElapseDate}}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
