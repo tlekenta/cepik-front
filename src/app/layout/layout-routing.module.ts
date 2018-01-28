@@ -10,6 +10,7 @@ import { VehicleremovePageComponent } from './pages/vehicle-page/vehicleremove-p
 import { VehicleDetailsComponent } from './pages/vehicle-page/vehicle-details/vehicle-details.component';
 import { DriverPageComponent } from './pages/driver-page/driver-page.component';
 import { DriverAddComponent } from './pages/driver-page/driver-add/driver-add.component';
+import { DriverDetailsComponent } from './pages/driver-page/driver-details/driver-details.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent,
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'vehicleadd', component: VehicleaddPageComponent },
       { path: 'vehicleremove', component: VehicleremovePageComponent },
       { path: 'driver', component: DriverPageComponent },
+      { path: 'driver/:id', component: DriverDetailsComponent },
       { path: 'driveradd', component: DriverAddComponent },
       { path: '', component: DashboardComponent }
     ],

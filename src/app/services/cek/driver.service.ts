@@ -13,4 +13,8 @@ export class DriverService {
     return this.http.get(SERVER_URL + "/drivers")
   }
 
+  getById(id: number): Observable<Driver> {
+    return this.http.get<Driver>(SERVER_URL + "/drivers/" + id);
+  }
+
 }

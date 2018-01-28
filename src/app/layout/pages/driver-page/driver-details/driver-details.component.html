@@ -1,0 +1,51 @@
+<div class="well">Dane kierowcy</div>
+<table class="table table-hover table-bordered" *ngIf="driver != undefined">
+  <tbody class="driver-details">
+    <tr>
+      <th><b>Imię</b></th>
+      <th>{{driver.firstName}}</th>
+    </tr>
+    <tr>
+      <th><b>Nazwisko</b></th>
+      <th>{{driver.lastName}}</th>
+    </tr>
+    <tr>
+      <th><b>PESEL</b></th>
+      <th>{{driver.pesel}}</th>
+    </tr>
+    <tr>
+      <th><b>Data ważności badania lekarskiego</b></th>
+      <th>{{driver.examinationElapseDate}}</th>
+    </tr>
+    <tr>
+      <th><b>Ulica</b></th>
+      <th>{{driver.address.street}}</th>
+    </tr>
+    <tr>
+      <th><b>Numer domu</b></th>
+      <th>{{driver.address.houseNumber}}</th>
+    </tr>
+    <tr>
+      <th><b>Numer mieszkania</b></th>
+      <th>{{driver.address.residenceNumber}}</th>
+    </tr>
+    <tr>
+      <th><b>Kod pocztowy</b></th>
+      <th>{{driver.address.zipCode}}</th>
+    </tr>
+    <tr>
+      <th><b>Miasto</b></th>
+      <th>{{driver.address.city}}</th>
+    </tr>
+  </tbody>
+</table>
+<hr class="divider">
+
+<div class="well">Dokumenty prawa jazdy</div>
+<hr class="divider">
+
+<div class="well">Kategorie prawa jazdy</div>
+<hr class="divider">
+
+<div class="well">Punkty karne</div>
+<hr class="divider">
