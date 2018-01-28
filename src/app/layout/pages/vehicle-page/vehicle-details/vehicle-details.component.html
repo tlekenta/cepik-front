@@ -26,6 +26,26 @@
 </table>
 <hr class="divider">
 
+<!--LISTA WŁAŚCICIELI-->
+<div class="well">Właściciele</div>
+<table class="table table-hover table-bordered">
+  <thead>
+  <tr>
+    <th>Imię</th>
+    <th>Nazwisko</th>
+    <th>PESEL</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let owner of wlasciciele">
+    <th>{{owner.firstName}}</th>
+    <th>{{owner.lastName}}</th>
+    <th>{{owner.pesel}}</th>
+  </tr>
+  </tbody>
+</table>
+<hr class="divider">
+
 <!--LISTA DOWODÓW REJSTRACYJNYCH-->
 <div class="well">Dowody rejestracyjne | <p (click)="showAddDocument= !showAddDocument; showUpdateDocument=false">dodaj dowód</p> | <p (click)="showUpdateDocument = !showUpdateDocument; showAddDocument=false">przedłuż ważność</p></div>
 <app-add-registration-document [vehicleId]="vehicleId" *ngIf="showAddDocument"></app-add-registration-document>

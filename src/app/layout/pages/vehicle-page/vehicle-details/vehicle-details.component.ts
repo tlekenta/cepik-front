@@ -8,6 +8,8 @@ import { RegistrationNumber } from '../../../../model/cep/registration-number';
 import { RegistrationNumberService } from '../../../../services/cep/registration-number.service';
 import { OcInsurance } from '../../../../model/cep/oc-insurance';
 import { OcInsuranceService } from '../../../../services/cep/oc-insurance.service';
+import { CarOwner } from '../../../../model/cep/car-owner';
+import { configFromObject } from 'ngx-bootstrap/chronos/create/from-object';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -22,6 +24,7 @@ export class VehicleDetailsComponent implements OnInit {
   private dowodyRejestracyjne: RegistrationDocument[] = [];
   private numeryRejestracyjne: RegistrationNumber[] = [];
   private ubezpieczeniaOc: OcInsurance[] = [];
+  private wlasciciele: Set<CarOwner> = new Set<CarOwner>();
   private showAddDocument: boolean = false;
   private showUpdateDocument: boolean = false;
   private showAddNumber: boolean = false;
@@ -51,6 +54,9 @@ export class VehicleDetailsComponent implements OnInit {
           this.ocService.getAll()
             .subscribe(data => {
               this.ubezpieczeniaOc = data.filter(oc => oc.vehicle.id == this.vehicleId);
+              this.ubezpieczeniaOc.forEach(oc => {
+                this.wlasciciele.add(oc.carOwner);
+              });
             });
           this.service.getModelById(this.vehicle.model.id)
             .subscribe(data => {
