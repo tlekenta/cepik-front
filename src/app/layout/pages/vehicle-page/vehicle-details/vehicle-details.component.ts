@@ -25,6 +25,7 @@ export class VehicleDetailsComponent implements OnInit {
   private showAddDocument: boolean = false;
   private showUpdateDocument: boolean = false;
   private showAddNumber: boolean = false;
+  private showAddOc: boolean = false;
   private updateServiceDate: boolean = false;
 
   constructor(private route: ActivatedRoute,

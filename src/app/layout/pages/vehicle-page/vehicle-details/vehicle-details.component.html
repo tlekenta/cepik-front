@@ -47,7 +47,7 @@
 <hr class="divider">
 
 <!--LISTA TABLIC REJSTRACYJNYCH-->
-<div class="well">Numery rejestracyjne | <p (click)="showAddNumber = !showAddNumber">Zaktualizuj numer rejestracyjny</p></div>
+<div class="well">Numery rejestracyjne | <p (click)="showAddNumber = !showAddNumber">zaktualizuj numer rejestracyjny</p></div>
 <app-update-register-number *ngIf="showAddNumber" [vehicleId]="vehicle.id" [actualNumbers]="numeryRejestracyjne"></app-update-register-number>
 <table class="table table-hover table-bordered">
   <thead>
@@ -67,7 +67,8 @@
 <hr class="divider">
 
 <!--LISTA OC-->
-<div class="well">Ubezpieczenia OC</div>
+<div class="well">Ubezpieczenia OC | <p (click)="showAddOc = !showAddOc">dodaj nowe OC</p></div>
+<app-add-oc-insurance *ngIf="showAddOc"></app-add-oc-insurance>
 <table class="table table-hover table-bordered">
   <thead>
   <tr>
