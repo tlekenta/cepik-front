@@ -1,4 +1,69 @@
 <h1 class="page-title">{{title}}</h1>
+<button *ngIf="!showFilters" class="btn btn-default" (click)="showFilters = !showFilters">Pokaż filtry</button>
+<button *ngIf="showFilters" class="btn btn-default" (click)="showFilters = !showFilters">Ukryj filtry</button>
+
+<div class="filters-container form-horizontal" *ngIf="showFilters">
+    <div class="form-group">
+        <label class="control-label col-sm-3 col-lg-2" for="brandInput">Marka</label>
+        <div class="col-sm-9 col-lg-10">
+            <input class="form-control" [(ngModel)]="brandInput" id="brandInput"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3 col-lg-2" for="modelInput">Model</label>
+        <div class="col-sm-9 col-lg-10">
+            <input class="form-control" [(ngModel)]="modelInput" id="modelInput"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3 col-lg-2" for="dateInputFrom">Rok od</label>
+        <div class="col-sm-3 col-lg-4">
+            <input class="form-control" [(ngModel)]="dateInputFrom" id="dateInputFrom" maxlength="4"/>
+        </div>
+        <label class="control-label col-sm-2 col-lg-1" for="dateInputTo">do</label>
+        <div class="col-sm-4 col-lg-5">
+            <input class="form-control" [(ngModel)]="dateInputTo" id="dateInputTo" maxlength="4"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3 col-lg-2" for="vinInput">VIN</label>
+        <div class="col-sm-9 col-lg-10">
+            <input class="form-control" [(ngModel)]="vinInput" id="vinInput" maxlength="17"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3 col-lg-2" for="engNumInput">Numer silnika</label>
+        <div class="col-sm-9 col-lg-10">
+            <input class="form-control" [(ngModel)]="engNumInput" id="engNumInput" maxlength="17"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3 col-lg-2" for="engPowFrom">Moc silnika od</label>
+        <div class="col-sm-3 col-lg-4">
+            <input class="form-control" [(ngModel)]="engPowFrom" id="engPowFrom" maxlength="3"/>
+        </div>
+        <label class="control-label col-sm-2 col-lg-1" for="engPowTo">do</label>
+        <div class="col-sm-4 col-lg-5">
+            <input class="form-control" [(ngModel)]="engPowTo" id="engPowTo" maxlength="3"/>
+        </div>
+    </div>
+
+    <div class="form-group last-input">
+        <label class="control-label col-sm-3 col-lg-2" for="engPojFrom">Pojemność silnika od</label>
+        <div class="col-sm-3 col-lg-4">
+            <input class="form-control" [(ngModel)]="engPojFrom" id="engPojFrom" maxlength="3"/>
+        </div>
+        <label class="control-label col-sm-2 col-lg-1" for="engPojTo">do</label>
+        <div class="col-sm-4 col-lg-5">
+            <input class="form-control" [(ngModel)]="engPojTo" id="engPojTo" maxlength="3"/>
+        </div>
+    </div>
+</div>
 
 <div class="table-responsive">
     <table class="table table-hover table-bordered">
@@ -20,7 +85,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let vehicle of table" (click)="carSelected(vehicle.id)">
+            <tr *ngFor="let vehicle of table
+            | brandFilter:brandInput
+            | modelFilter:modelInput
+            | fromToPipe:'productionYear':dateInputFrom:dateInputTo:4
+            | textFilter:'vin':vinInput
+            | textFilter:'engineNumber':engNumInput
+            | fromToPipe:'enginePower':engPowFrom:engPowTo:3
+            | fromToPipe:'engineCapacity':engPojFrom:engPojTo:1"
+            (click)="carSelected(vehicle.id)">
+
                 <th>{{vehicle.model.brand.brand}}</th>
                 <th>{{vehicle.model.model}}</th>
                 <th>{{vehicle.productionYear}}</th>

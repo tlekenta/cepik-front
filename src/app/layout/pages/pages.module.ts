@@ -15,6 +15,10 @@ import { AddOcInsuranceComponent } from './vehicle-page/vehicle-details/add-oc-i
 import { DriverPageComponent } from './driver-page/driver-page.component';
 import { DriverAddComponent } from './driver-page/driver-add/driver-add.component';
 import { DriverDetailsComponent } from './driver-page/driver-details/driver-details.component';
+import { BrandFilterPipe } from '../../pipes/cep/brand-filter.pipe';
+import { ModelFilterPipe } from '../../pipes/cep/model-filter.pipe';
+import { FromToPipe } from '../../pipes/from-to.pipe';
+import { TextFilterPipe } from '../../pipes/text-filter.pipe';
 
 const components = [
   DashboardComponent,
@@ -29,7 +33,11 @@ const components = [
   AddOcInsuranceComponent,
   DriverPageComponent,
   DriverAddComponent,
-  DriverDetailsComponent
+  DriverDetailsComponent,
+  BrandFilterPipe,
+  ModelFilterPipe,
+  FromToPipe,
+  TextFilterPipe
 ];
 
 @NgModule({

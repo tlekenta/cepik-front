@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class VehiclePageComponent implements OnInit {
   title = "Vehicle";
+  showFilters = false;
 
   table: Array<Vehicle> = [];
   constructor(private vehicleService: VehicleService,
