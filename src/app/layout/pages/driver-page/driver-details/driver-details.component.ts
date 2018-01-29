@@ -21,6 +21,10 @@ export class DriverDetailsComponent implements OnInit {
   private authorisations: Authorisation[];
   private points: PenaltyPoints[];
 
+  private showDeleteAuthorisation = false;
+  private showAddAuthorisation = false;
+  private showAddPoints = false;
+
   constructor(private route: ActivatedRoute,
               private service: DriverService,
               private licenceService: DrivingLicenceService,

@@ -19,6 +19,7 @@ import { BrandFilterPipe } from '../../pipes/cep/brand-filter.pipe';
 import { ModelFilterPipe } from '../../pipes/cep/model-filter.pipe';
 import { FromToPipe } from '../../pipes/from-to.pipe';
 import { TextFilterPipe } from '../../pipes/text-filter.pipe';
+import { DeleteAuthorisationComponent } from './driver-page/driver-details/delete-authorisation/delete-authorisation.component';
 
 const components = [
   DashboardComponent,
@@ -37,7 +38,8 @@ const components = [
   BrandFilterPipe,
   ModelFilterPipe,
   FromToPipe,
-  TextFilterPipe
+  TextFilterPipe,
+  DeleteAuthorisationComponent
 ];
 
 @NgModule({

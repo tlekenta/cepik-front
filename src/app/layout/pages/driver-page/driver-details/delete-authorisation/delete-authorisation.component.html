@@ -1,0 +1,9 @@
+<form class="form-inline">
+  <select class="form-control form-inline" (change)="selectedCategory = $event.target.value">
+    <option disabled selected value> wybierz kategorię </option>
+    <option *ngFor="let item of categories" [value]="item">{{item}}</option>
+  </select>
+  <button class="btn btn-danger" (click)="delete()" [disabled]="selectedCategory.length == 0">Usuń</button>
+  <div class="alert alert-danger" *ngIf="error">{{errorMsg}}</div>
+  <div class="alert alert-success" *ngIf="success">{{successMsg}}</div>
+</form>

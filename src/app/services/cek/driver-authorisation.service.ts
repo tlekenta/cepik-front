@@ -13,4 +13,8 @@ export class DriverAuthorisationService {
     return this.http.get(SERVER_URL + "/authorisation");
   }
 
+  delete(id: number): Observable<string> {
+    return this.http.delete(SERVER_URL + "/authorisation/" + id);
+  }
+
 }

@@ -1,7 +1,7 @@
-import { Authorisation, Category } from '../authorisation';
+import { Authorisation } from '../authorisation';
 
 export class AuthorisationForm{
-  category: Category;
+  category: string;
   from: Date;
   to: Date;
   driverId: number;

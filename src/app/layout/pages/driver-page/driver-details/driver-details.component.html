@@ -60,7 +60,8 @@
 </table>
 <hr class="divider">
 
-<div class="well">Kategorie prawa jazdy</div>
+<div class="well">Kategorie prawa jazdy | <p>dodaj kategorię</p> | <p (click)="showDeleteAuthorisation = ! showDeleteAuthorisation">usuń kategorię</p></div>
+<app-delete-authorisation *ngIf="showDeleteAuthorisation" [authorisations]="authorisations"></app-delete-authorisation>
 <table class="table table-hover table-bordered">
   <thead>
     <tr>
