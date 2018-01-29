@@ -1,0 +1,17 @@
+.well {
+    font-size: 350%;
+    text-align: center;
+}
+
+.col-sm-6 {
+    text-align: center;
+    font-size: 150%;
+}
+
+.col-sm-6 > p {
+    font-size: 200%;
+}
+
+.col-sm-6 > .well {
+    font-size: 150%;
+}
