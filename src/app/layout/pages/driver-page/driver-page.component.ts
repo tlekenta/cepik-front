@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class DriverPageComponent implements OnInit {
   title = "Kierowcy";
   table: Driver[];
+  showFilters = false;
 
   constructor(private service: DriverService,
               private router: Router) { }
