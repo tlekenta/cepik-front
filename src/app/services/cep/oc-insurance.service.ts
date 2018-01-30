@@ -3,6 +3,7 @@ import { OcInsurance } from '../../model/cep/oc-insurance';
 import { SERVER_URL } from '../../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 import { HttpWrapperService } from '../http-wrapper.service';
+import { OcInsuranceForm } from '../../model/cep/form/oc-insurance-from';
 
 @Injectable()
 export class OcInsuranceService {
@@ -15,6 +16,11 @@ export class OcInsuranceService {
 
   delete(oc: OcInsurance): Observable<OcInsurance> {
     return this.http.delete(SERVER_URL + "/ocInsurance/" + oc.id);
+  }
+
+  save(oc: OcInsuranceForm): Observable<OcInsurance> {
+    let body = JSON.stringify(oc);
+    return this.http.post(SERVER_URL + "/ocInsurance", body);
   }
 
 }

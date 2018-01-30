@@ -19,6 +19,7 @@ import { DriverService } from './services/cek/driver.service';
 import { DrivingLicenceService } from './services/cek/driving-licence.service';
 import { DriverAuthorisationService } from './services/cek/driver-authorisation.service';
 import { PenaltyPointsService } from './services/cek/penalty-points.service';
+import { CarOwnerService } from './services/cep/car-owner.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PenaltyPointsService } from './services/cek/penalty-points.service';
     DriverService,
     DrivingLicenceService,
     DriverAuthorisationService,
-    PenaltyPointsService
+    PenaltyPointsService,
+    CarOwnerService
   ],
   bootstrap: [AppComponent]
 })
