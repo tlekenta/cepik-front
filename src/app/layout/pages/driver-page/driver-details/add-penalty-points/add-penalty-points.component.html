@@ -1,0 +1,24 @@
+<form class="form-inline" #form="ngForm" (ngSubmit)="add()">
+
+  <label for="count">Liczba punktów:</label>
+  <input class="form-control"
+         id="count"
+         name="count"
+         [(ngModel)]="pointsForm.count"
+         type="number"
+         required
+         min="1">
+
+  <label for="data_od">Data przyznania:</label>
+  <input class="form-control"
+         id="data_od"
+         name="data_od"
+         [(ngModel)]="pointsForm.date"
+         type="date"
+         required>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Dodaj</button>
+  <div class="alert alert-danger" *ngIf="error">{{errorMsg}}</div>
+  <div class="alert alert-success" *ngIf="success">{{successMsg}}</div>
+
+</form>

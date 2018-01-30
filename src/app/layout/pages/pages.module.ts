@@ -21,6 +21,7 @@ import { FromToPipe } from '../../pipes/from-to.pipe';
 import { TextFilterPipe } from '../../pipes/text-filter.pipe';
 import { DeleteAuthorisationComponent } from './driver-page/driver-details/delete-authorisation/delete-authorisation.component';
 import { AddAuthorisationComponent } from './driver-page/driver-details/add-authorisation/add-authorisation.component';
+import { AddPenaltyPointsComponent } from './driver-page/driver-details/add-penalty-points/add-penalty-points.component';
 
 const components = [
   DashboardComponent,
@@ -41,7 +42,8 @@ const components = [
   FromToPipe,
   TextFilterPipe,
   DeleteAuthorisationComponent,
-  AddAuthorisationComponent
+  AddAuthorisationComponent,
+  AddPenaltyPointsComponent
 ];
 
 @NgModule({

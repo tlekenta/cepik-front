@@ -81,7 +81,8 @@
 </table>
 <hr class="divider">
 
-<div class="well">Punkty karne</div>
+<div class="well">Punkty karne | <p (click)="showAddPoints = !showAddPoints">przyznaj punkty karne</p></div>
+<app-add-penalty-points [driverId]="driverId" *ngIf="showAddPoints"></app-add-penalty-points>
 <table class="table table-hover table-bordered">
   <thead>
     <tr>
