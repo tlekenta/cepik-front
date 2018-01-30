@@ -1,0 +1,28 @@
+<form class="form-inline" #form="ngForm" (ngSubmit)="add()">
+
+  <select class="form-control form-inline" (change)="authForm.category = $event.target.value">
+    <option disabled selected value> wybierz kategorię</option>
+    <option *ngFor="let item of categories" [value]="item">{{item}}</option>
+  </select>
+
+  <label for="data_od">Data od:</label>
+  <input class="form-control"
+         id="data_od"
+         name="data_od"
+         [(ngModel)]="authForm.from"
+         type="date"
+         required>
+
+  <label for="data_do">Data do:</label>
+  <input class="form-control"
+         id="data_do"
+         name="data_do"
+         [(ngModel)]="authForm.to"
+         type="date"
+         required>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Dodaj</button>
+  <div class="alert alert-danger" *ngIf="error">{{errorMsg}}</div>
+  <div class="alert alert-success" *ngIf="success">{{successMsg}}</div>
+
+</form>
