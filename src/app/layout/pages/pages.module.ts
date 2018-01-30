@@ -23,6 +23,7 @@ import { DeleteAuthorisationComponent } from './driver-page/driver-details/delet
 import { AddAuthorisationComponent } from './driver-page/driver-details/add-authorisation/add-authorisation.component';
 import { AddPenaltyPointsComponent } from './driver-page/driver-details/add-penalty-points/add-penalty-points.component';
 import { AddExistingCarOwnerComponent } from './vehicle-page/vehicle-details/add-existing-car-owner/add-existing-car-owner.component';
+import { AddNewCarOwnerComponent } from './vehicle-page/vehicle-details/add-new-car-owner/add-new-car-owner.component';
 
 const components = [
   DashboardComponent,
@@ -45,7 +46,8 @@ const components = [
   DeleteAuthorisationComponent,
   AddAuthorisationComponent,
   AddPenaltyPointsComponent,
-  AddExistingCarOwnerComponent
+  AddExistingCarOwnerComponent,
+  AddNewCarOwnerComponent
 ];
 
 @NgModule({

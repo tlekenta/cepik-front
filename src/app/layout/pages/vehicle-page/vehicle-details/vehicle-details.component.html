@@ -27,8 +27,9 @@
 <hr class="divider">
 
 <!--LISTA WŁAŚCICIELI-->
-<div class="well">Właściciele | <p (click)="showAddOwner = !showAddOwner; error = false; showDelOwner = false;">dodaj właściciela z listy istniejących</p> | <p>dodaj nowego właściciela</p> | <p (click)="showDelOwner = !showDelOwner; error = false; showAddOwner = false">usuń właściciela</p></div>
+<div class="well">Właściciele | <p (click)="showAddOwner = !showAddOwner; error = false; showDelOwner = false; showNewOwner=false;">dodaj właściciela z listy istniejących</p> | <p (click)="showNewOwner = !showNewOwner; error = false; showDelOwner = false; showAddOwner = false">dodaj nowego właściciela</p> | <p (click)="showDelOwner = !showDelOwner; error = false; showAddOwner = false; showNewOwner=false">usuń właściciela</p></div>
 <app-add-existing-car-owner *ngIf="showAddOwner" [aktualni]="wlasciciele" [vehicle]="vehicle"></app-add-existing-car-owner>
+<app-add-new-car-owner *ngIf="showNewOwner"></app-add-new-car-owner>
 <div class="alert alert-danger" *ngIf="error">{{errorMsg}}</div>
 <table class="table table-hover table-bordered">
   <thead>

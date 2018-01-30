@@ -32,6 +32,7 @@ export class VehicleDetailsComponent implements OnInit {
   private updateServiceDate: boolean = false;
   private showDelOwner: boolean = false;
   private showAddOwner: boolean = false;
+  private showNewOwner: boolean = false;
 
   private error = false;
   private errorMsg = "Nie można usunąć jedynego właściciela";
