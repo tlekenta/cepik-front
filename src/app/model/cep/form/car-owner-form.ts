@@ -9,10 +9,9 @@ export class CarOwnerForm{
   pesel: string;
   firstName: string;
   lastName: string;
-  examinationElapseDate: Date;
   regon: string;
   institution: string;
-  registrationDocumentList: number[];
+  registrationDocumentList: number[] = [];
 
   constructor(d?: CarOwner) {
     if (d != undefined) {
