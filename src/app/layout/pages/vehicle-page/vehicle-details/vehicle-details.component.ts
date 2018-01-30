@@ -30,6 +30,10 @@ export class VehicleDetailsComponent implements OnInit {
   private showAddNumber: boolean = false;
   private showAddOc: boolean = false;
   private updateServiceDate: boolean = false;
+  private showDelOwner: boolean = false;
+
+  private error = false;
+  private errorMsg = "Nie można usunąć jedynego właściciela";
 
   constructor(private route: ActivatedRoute,
               private service: VehicleService,
@@ -73,6 +77,21 @@ export class VehicleDetailsComponent implements OnInit {
       .toPromise()
       .then(resp => console.log(resp))
       .catch(resp => console.log(resp))
+
+  }
+
+  deleteOwner(ownerId: number){
+    console.log("delete()" + ownerId);
+    if(this.wlasciciele.size == 1) {
+      this.error = true;
+      return;
+    }
+    this.ubezpieczeniaOc.forEach(oc => {
+      this.ocService.delete(oc)
+        .toPromise()
+        .then(resp => window.location.reload())
+        .catch(error => window.location.reload())
+    });
 
   }
 

@@ -13,4 +13,8 @@ export class OcInsuranceService {
     return this.http.get<OcInsurance[]>(SERVER_URL + "/ocInsurance")
   }
 
+  delete(oc: OcInsurance): Observable<OcInsurance> {
+    return this.http.delete(SERVER_URL + "/ocInsurance/" + oc.id);
+  }
+
 }

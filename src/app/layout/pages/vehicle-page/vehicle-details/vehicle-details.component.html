@@ -27,13 +27,15 @@
 <hr class="divider">
 
 <!--LISTA WŁAŚCICIELI-->
-<div class="well">Właściciele | <p>dodaj właściciela z listy istniejących</p> | <p>dodaj nowego właściciela</p></div>
+<div class="well">Właściciele | <p>dodaj właściciela z listy istniejących</p> | <p>dodaj nowego właściciela</p> | <p (click)="showDelOwner = !showDelOwner; error = false">usuń właściciela</p></div>
+<div class="alert alert-danger" *ngIf="error">{{errorMsg}}</div>
 <table class="table table-hover table-bordered">
   <thead>
   <tr>
     <th>Imię</th>
     <th>Nazwisko</th>
     <th>PESEL</th>
+    <th style="width: 15px" *ngIf="showDelOwner">Usuń</th>
   </tr>
   </thead>
   <tbody>
@@ -41,6 +43,7 @@
     <th>{{owner.firstName}}</th>
     <th>{{owner.lastName}}</th>
     <th>{{owner.pesel}}</th>
+    <th style="color: red" *ngIf="showDelOwner"><p (click)="deleteOwner(owner.id)">usuń</p></th>
   </tr>
   </tbody>
 </table>
